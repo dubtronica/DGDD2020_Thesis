@@ -20,12 +20,18 @@ public class ImmuCharacter
         Debug.Log("I am " + name + ". I have " + health + " HP and deal " + damage + " damage with my " + skill + ".");
     }
 
-    public void takeDamage(int dmg)
-    {
-        health -= dmg;
 
-        Debug.Log("Arrgh! I took " + dmg + " damage! My HP is now at " + health);
+    public void takeDamage(ImmuCharacter ic)
+    {
+        health -= ic.damage;
+
+        Debug.Log("Arrgh! I took " + ic.damage + " damage! My HP is now at " + health);
     }
 
+    public void takeDamage(ImmuCharacter ic, double multiplier)
+    {
+        health -= (int) (ic.damage * multiplier);
 
+        Debug.Log("Arrgh! I took " + (int)(ic.damage * multiplier) + " damage! My HP is now at " + health);
+    }
 }
