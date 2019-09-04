@@ -1,0 +1,71 @@
+September 5, 2019
+
+Scenes:
+
+- Persistent
+	- stores persistent data (data that has to be available in every scene)
+	- first scene that loads
+	- loads the other scenes
+	- GameObjects:
+		- DataController
+			- contains DataController script
+- MainScreen
+	- user homescreen
+	- GameObjects:
+		- MenuScriptController
+			- contains MenuScriptController script
+		- UI:
+			- Buttons to add player Xp, currency 1, currency 2
+			- Button to view character list
+- CharacterList
+	- views characters
+	- for debugging purpose (?)
+	- should dyanmically load characters from a file
+	- GameObjects:
+		- ButtonObjectPool
+			- contains SimpleObjectPool script
+		- UI
+			- header
+				- text label
+				- back button
+			- Scroll View
+				- for character list
+				- Content
+					- CharacterScrollList
+		- CharacterListController
+			- contains script to return to MainScreen
+
+
+
+Scripts:
+
+- DataController
+	- script to store persistent data
+	- parses data files
+	- loads MainScreen scene
+- CharacterData
+	- class for character data
+	- Characters class
+		- array of CharacterData
+		- is required as a workaround for Json arrays
+	- CharacterData class
+		- actual characters
+- SimpleObjectPool
+	- activates and deactivates object instead of destroying them for efficiency purposes
+	- just copy pasted
+- MenuScriptController
+	- script that contains functions to things that happen in the MainScreen
+	- these include:
+		- function to go to CharacterList scene
+		- function to update Player Info in the MainScreen and Json
+- CharacterScrollList
+	- script for character scroll list in CharacterList scene
+	- dyanmically populates scroll list with characters in text file
+	- REMOVEBUTTONS DOESNT WORK. DO NOT USE
+- SampleCharacterButton
+	- script attached to the CharacterButton prefab
+	- class to populate button labels etc. for CharacterButton
+- CharacterListController
+	- script to return to MainScreen scene from CharacterList scene
+- PlayerData
+	- class for player data
