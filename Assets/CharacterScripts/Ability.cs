@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Ability 
 {
-    string name, description;
-    double dmult;
+    public string name, description;
+    public double dmult;
+    public ImmuCharacter owner;
 
     public Ability()
     {
@@ -14,11 +15,12 @@ public class Ability
         dmult = 2.2;
     }
 
-    public Ability(string n, string d, double m)
+    public Ability(string n, string d, double m, ImmuCharacter o)
     {
         name = n;
         description = d;
         dmult = m;
+        owner = o;
     }
 
     void perform()
