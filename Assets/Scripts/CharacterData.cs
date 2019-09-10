@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Characters
 {
-	public CharacterData[] characters;
+	public List<CharacterData> characters;
 }
 
 

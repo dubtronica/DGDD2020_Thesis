@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CharacterScrollList : MonoBehaviour
 {
 	private DataController dataController;
-	public CharacterData[] characterList;
+	public List<CharacterData> characterList;
 	public Transform contentPanel;
 	public SimpleObjectPool buttonObjectPool;
 	
@@ -14,7 +14,7 @@ public class CharacterScrollList : MonoBehaviour
     void Start()
     {
 		dataController = FindObjectOfType<DataController>();
-		characterList = dataController.GetCharacterData();
+		characterList = dataController.GetPlayerCharacterData();
         RefreshDisplay();
     }
 	
@@ -26,7 +26,7 @@ public class CharacterScrollList : MonoBehaviour
 	
 	private void AddButtons()
 	{
-		for (int i = 0; i < characterList.Length; i++)
+		for (int i = 0; i < characterList.Count; i++)
 		{
 			CharacterData chara = characterList[i];
 			GameObject newButton = buttonObjectPool.GetObject();

@@ -20,9 +20,14 @@ public class DataController : MonoBehaviour
 		SceneManager.LoadScene ("MenuScreen");
     }
 	
-	public CharacterData[] GetCharacterData()
+	public List<CharacterData> GetAllCharacterData()
 	{
 		return allCharacterData.characters;
+	}
+	
+	public List<CharacterData> GetPlayerCharacterData()
+	{
+		return playerData.ownedCharacters.characters;
 	}
 	
 	public PlayerData GetPlayerData() 
@@ -61,7 +66,9 @@ public class DataController : MonoBehaviour
 		if (File.Exists(filePath))
 		{
 			string dataAsJson = File.ReadAllText(filePath);
+			Debug.Log(dataAsJson);
 			playerData = JsonUtility.FromJson<PlayerData>(dataAsJson);
+			Debug.Log(playerData.ownedCharacters.characters[0].name);
 		}
 		else
 		{
@@ -69,6 +76,7 @@ public class DataController : MonoBehaviour
 			newPlayerData.experience = 0;
 			newPlayerData.currency1 = 0;
 			newPlayerData.currency2 = 0;
+			newPlayerData.ownedCharacters = new Characters();
 			
 			string dataAsJson = JsonUtility.ToJson (newPlayerData);
 			File.WriteAllText(filePath, dataAsJson);

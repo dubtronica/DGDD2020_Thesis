@@ -8,5 +8,5 @@ public class PlayerData
     public int experience;
 	public int currency1;
 	public int currency2;
-	//public CharacterData[] allPlayerCharacters;
+	public Characters ownedCharacters;
 }
