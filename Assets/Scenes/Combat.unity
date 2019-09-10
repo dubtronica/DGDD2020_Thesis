@@ -192,12 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499000febdfe7aa448d3ad31be04f57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 3
-  cols: 3
   gridSize: {x: 3, y: 3}
   gridOffset: {x: 0, y: 0}
   cellSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  goSprite: {fileID: 0}
+  goSprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!4 &377673652
 Transform:
   m_ObjectHideFlags: 0
@@ -241,8 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499000febdfe7aa448d3ad31be04f57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 3
-  cols: 3
   gridSize: {x: 3, y: 3}
   gridOffset: {x: 0, y: 0}
   cellSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
