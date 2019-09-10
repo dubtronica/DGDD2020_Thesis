@@ -5,7 +5,7 @@ using UnityEngine;
 public class SomeGrid : MonoBehaviour
 {
     [SerializeField]
-    private int rows, cols;
+    private static int rows, cols;
     [SerializeField]
     private Vector2 gridSize, gridOffset;
 
@@ -13,21 +13,24 @@ public class SomeGrid : MonoBehaviour
     [SerializeField]
     private Sprite cellSprite, goSprite;
     private Vector2 cellSize, cellScale;
-
-    GameObject cellobject = new GameObject();
-
-    
+    GameObject[][] mipmap = new GameObject[rows][];
+       
 
     // Start is called before the first frame update
     void Start()
     {
-        initCells();   
+        for (int i = 0; i < mipmap.Length; i++)
+        {
+            mipmap[i] = new GameObject[cols];
+        }
+
+        initCells();
     }
 
     void initCells()
     {
+        GameObject cellobject = new GameObject();
         cellobject.AddComponent<SpriteRenderer>().sprite = cellSprite;
-
         cellSize = cellSprite.bounds.size;
 
         Vector2 newCellSize = new Vector2(gridSize.x / (float)cols, gridSize.y / (float)rows);
@@ -63,15 +66,26 @@ public class SomeGrid : MonoBehaviour
         Vector2 gopos = new Vector2(col * cellSize.x + gridOffset.x + transform.position.x, row * cellSize.y + gridOffset.y + transform.position.y);
         GameObject cO = Instantiate(go, gopos, Quaternion.identity) as GameObject;
         cO.transform.parent = transform;
+        mipmap[row][col] = go;
+    }
+
+    void remove(int col, int row)
+    {
+        if(mipmap[row][col] != null)
+        {
+            Destroy(mipmap[row][col]);
+        }
+    }
+
+    private void OnMouseOver()
+    {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject ins = new GameObject();
-        ins.AddComponent<SpriteRenderer>().sprite = goSprite;
-        insert(0, 0, ins);
-
+       
 
     }
 }
