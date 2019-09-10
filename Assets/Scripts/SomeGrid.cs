@@ -14,6 +14,10 @@ public class SomeGrid : MonoBehaviour
     private Sprite cellSprite, goSprite;
     private Vector2 cellSize, cellScale;
 
+    GameObject cellobject = new GameObject();
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +26,6 @@ public class SomeGrid : MonoBehaviour
 
     void initCells()
     {
-        GameObject cellobject = new GameObject();
-
         cellobject.AddComponent<SpriteRenderer>().sprite = cellSprite;
 
         cellSize = cellSprite.bounds.size;
