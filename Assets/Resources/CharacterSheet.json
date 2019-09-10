@@ -1,0 +1,22 @@
+{
+	"characters":[
+		{
+			"name":"Neutrophil",
+			"type":"ImmuneCell",
+			"maxHealth":150,
+			"maxDamage":60
+		},
+		{
+			"name":"Macrophage",
+			"type":"ImmuneCell",
+			"maxHealth":170,
+			"maxDamage":75
+		},
+		{
+			"name":"Killer T",
+			"type":"ImmuneCell",
+			"maxHealth":190,
+			"maxDamage":95
+		}
+	]
+}

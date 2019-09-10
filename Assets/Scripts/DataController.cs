@@ -32,17 +32,31 @@ public class DataController : MonoBehaviour
 	
 	public void SavePlayerData(PlayerData data) 
 	{
-		string filePath = Path.Combine(Application.streamingAssetsPath, playerDataFilename);
+		string filePath;
+
+		#if UNITY_EDITOR
+			filePath = Path.Combine(Application.streamingAssetsPath, playerDataFilename);
+		#elif !UNITY_EDITOR
+			// retrieve from persistent data path
+			filePath = Path.Combine(Application.persistentDataPath, playerDataFilename);
+		#endif
+		
 		playerData = data;	
 		
 		string dataAsJson = JsonUtility.ToJson (playerData);
-		Debug.Log(dataAsJson);
 		File.WriteAllText(filePath, dataAsJson);
 	}
 	
 	private void LoadPlayerData()
 	{
-		string filePath = Path.Combine(Application.streamingAssetsPath, playerDataFilename);
+		string filePath;
+
+		#if UNITY_EDITOR
+			filePath = Path.Combine(Application.streamingAssetsPath, playerDataFilename);
+		#elif !UNITY_EDITOR
+			// retrieve from persistent data path
+			filePath = Path.Combine(Application.persistentDataPath, playerDataFilename);
+		#endif
 		
 		if (File.Exists(filePath))
 		{
@@ -51,22 +65,21 @@ public class DataController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Cannot load player data");
+			PlayerData newPlayerData = new PlayerData();
+			newPlayerData.experience = 0;
+			newPlayerData.currency1 = 0;
+			newPlayerData.currency2 = 0;
+			
+			string dataAsJson = JsonUtility.ToJson (newPlayerData);
+			File.WriteAllText(filePath, dataAsJson);
 		}
 	}
 	
 	private void LoadCharacterData()
 	{
-		string filePath = Path.Combine(Application.streamingAssetsPath, characterDataFilename);
-		
-		if (File.Exists(filePath))
-		{
-			string dataAsJson = File.ReadAllText(filePath);
-			allCharacterData = JsonUtility.FromJson<Characters>(dataAsJson);
-		}
-		else
-		{
-			Debug.LogError("Cannot load character data");
-		}
+		string filePath = characterDataFilename.Replace(".json", "");
+		TextAsset characterFile = Resources.Load<TextAsset>(filePath);
+
+		allCharacterData = JsonUtility.FromJson<Characters>(characterFile.ToString());
 	}
 }
