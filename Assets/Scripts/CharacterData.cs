@@ -12,6 +12,7 @@ public class Characters
 [System.Serializable]
 public class CharacterData
 {
+	public int index;
 	public string name;
 	public string type;
     public int maxHealth;

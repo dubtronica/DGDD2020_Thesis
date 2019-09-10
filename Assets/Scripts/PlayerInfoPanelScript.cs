@@ -20,7 +20,7 @@ public class PlayerInfoPanelScript : MonoBehaviour
 		UpdateScreenPlayerInfo();
     }
 	
-	private void UpdateScreenPlayerInfo()
+	public void UpdateScreenPlayerInfo()
 	{
 		playerXPDisplayText.text = "Player XP: " + playerData.experience.ToString();
 		currency1DisplayText.text = "Currency 1: " + playerData.currency1.ToString();
