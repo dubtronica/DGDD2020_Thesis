@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +15,9 @@ public class CharacterData
 	public int index;
 	public string name;
 	public string type;
-    public int maxHealth;
+    	public int maxHealth;
 	public int maxDamage;
+	public int rarity;
+	public string passiveAbility;
+	public string activeAbility;
 }
