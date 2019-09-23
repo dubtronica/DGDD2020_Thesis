@@ -6,7 +6,9 @@
 			"type":"ImmuneCell",
 			"maxHealth":150,
 			"maxDamage":60,
-			"rarity":0
+			"rarity":0,
+			"passiveAbility":"Vesicular Mask",
+			"activeAbility":"Phagocytosis Slash"
 		},
 		{
 			"index":1,
@@ -14,15 +16,59 @@
 			"type":"ImmuneCell",
 			"maxHealth":170,
 			"maxDamage":75,
-			"rarity":0
+			"rarity":0,
+			"passiveAbility":"N/A",
+			"activeAbility":"Devour"
 		},
 		{
 			"index":2,
-			"name":"Killer T",
+			"name":"Killer T-lymphocyte",
 			"type":"ImmuneCell",
 			"maxHealth":190,
 			"maxDamage":95,
-			"rarity":1
+			"rarity":1,
+			"passiveAbility":"N/A",
+			"activeAbility":"Apoptosis"
+		},
+		{
+			"index":3,
+			"name":"Helper T-lymphocyte",
+			"type":"ImmuneCell",
+			"maxHealth":190,
+			"maxDamage":80,
+			"rarity":1,
+			"passiveAbility":"Memory Recall",
+			"activeAbility":"Strategic Encore"
+		},
+		{
+			"index":4,
+			"name":"Eosinophil",
+			"type":"ImmuneCell",
+			"maxHealth":200,
+			"maxDamage":100,
+			"rarity":1,
+			"passiveAbility":"N/A",
+			"activeAbility":"Phagocytosis Bite"
+		},
+		{
+			"index":5,
+			"name":"NK Cells",
+			"type":"ImmuneCell",
+			"maxHealth":200,
+			"maxDamage":100,
+			"rarity":2,
+			"passiveAbility":"N/A",
+			"activeAbility":"Cytotoxic Slash"
+		},
+		{
+			"index":6,
+			"name":"B-lymphocyte",
+			"type":"ImmuneCell",
+			"maxHealth":200,
+			"maxDamage":100,
+			"rarity":2,
+			"passiveAbility":"N/A",
+			"activeAbility":"Antibody Job"
 		}
 	]
 }
