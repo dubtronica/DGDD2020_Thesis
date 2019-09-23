@@ -5,21 +5,24 @@
 			"name":"Neutrophil",
 			"type":"ImmuneCell",
 			"maxHealth":150,
-			"maxDamage":60
+			"maxDamage":60,
+			"rarity":0
 		},
 		{
 			"index":1,
 			"name":"Macrophage",
 			"type":"ImmuneCell",
 			"maxHealth":170,
-			"maxDamage":75
+			"maxDamage":75,
+			"rarity":0
 		},
 		{
 			"index":2,
 			"name":"Killer T",
 			"type":"ImmuneCell",
 			"maxHealth":190,
-			"maxDamage":95
+			"maxDamage":95,
+			"rarity":1
 		}
 	]
 }
