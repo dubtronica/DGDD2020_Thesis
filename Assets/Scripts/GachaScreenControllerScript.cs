@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GachaScreenControllerScript : MonoBehaviour
 {
-    private List<CharacterData> characterList;
+    	private List<CharacterData> characterList;
 	private DataController dataController;
 	private PlayerData playerData;
 	
@@ -24,10 +24,25 @@ public class GachaScreenControllerScript : MonoBehaviour
 		playerData = dataController.GetPlayerData();
 	}
 
-    private CharacterData GetRandomCharacter() 
+    	private CharacterData GetRandomCharacter(bool premium) 
 	{
-		int num = Random.Range(0, characterList.Count);
-		return characterList[num];
+		int num = 0;
+		if(premium){num = Random.Range(51,100);}
+		else{num = Random.Range(1,100);}
+		
+		int rarity = 0;
+		if(num > 50){rarity++;}
+		if(num > 85){rarity++;}
+		
+		List<CharacterData> tempList = new List<CharacterData>();
+		for(int x = 0; x < characterList.Count; x++){
+			if(characterList[x].rarity == rarity){
+				tempList.Add(characterList[x]);
+			}
+		}
+		
+		int charNum = Random.Range(0, tempList.Count);
+		return tempList[charNum];
 	}
 	
 	private bool IsCharacterOwned(CharacterData character)
@@ -47,7 +62,7 @@ public class GachaScreenControllerScript : MonoBehaviour
 		int amount = 10;
 		if (playerData.currency1 >= amount)
 		{
-			CharacterData character = GetRandomCharacter();
+			CharacterData character = GetRandomCharacter(false);
 			bool characterOwned = IsCharacterOwned(character);
 			string text = characterOwned ? " Shard" : "";
 			characterPullDisplay.text = "You received " + character.name + text;
