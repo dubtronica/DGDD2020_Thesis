@@ -15,7 +15,7 @@ public class CharacterData
 	public int index;
 	public string name;
 	public string type;
-    public int maxHealth;
+   	public int maxHealth;
 	public int maxDamage;
 	public int rarity;
 	public string passiveAbility;
