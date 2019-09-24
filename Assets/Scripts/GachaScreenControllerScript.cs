@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GachaScreenControllerScript : MonoBehaviour
 {
-    	private List<CharacterData> characterList;
+    private List<CharacterData> characterList;
 	private DataController dataController;
 	private PlayerData playerData;
 	
@@ -57,6 +57,17 @@ public class GachaScreenControllerScript : MonoBehaviour
 		return false;
 	}
 	
+	private void addShard(CharacterData character)
+	{
+		for (int i = 0; i < playerData.ownedCharacters.characters.Count; i++)
+		{
+			if (playerData.ownedCharacters.characters[i].index == character.index)
+			{
+				playerData.ownedCharacters.characters[i].shardCount++;
+			}
+		}
+	}
+	
 	public void BuyCharacter()
 	{
 		int amount = 10;
@@ -71,6 +82,9 @@ public class GachaScreenControllerScript : MonoBehaviour
 			
 			if (!characterOwned) {
 				playerData.ownedCharacters.characters.Add(character);
+			}
+			else{
+				addShard(character);
 			}
 			
 			dataController.SavePlayerData(playerData);
