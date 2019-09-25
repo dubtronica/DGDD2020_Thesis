@@ -14,4 +14,9 @@ public class MenuScriptController : MonoBehaviour
 	{
 		SceneManager.LoadScene("GachaScreen");
 	}
+
+    public void GoToNarrativeCutscene()
+    {
+        SceneManager.LoadScene("Narrative");
+    }
 }
