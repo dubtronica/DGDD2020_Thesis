@@ -13,7 +13,6 @@ public class GlobalFuncsDialog : MonoBehaviour
         for(int i = allImages.Count - 1; i > 0; i--)
         {
             Image img = allImages[i];
-            Debug.Log(img.gameObject.name);
 
             if(img == activeImage)
             {

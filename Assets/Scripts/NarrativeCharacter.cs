@@ -97,7 +97,6 @@ public class NarrativeCharacter
     public Sprite GetBodySprite(int index = 0)
     {
         Sprite[] Sprites = Resources.LoadAll<Sprite>("NarrativeDummyCharacters/" + charname + "/Body");
-        //Debug.Log("Sprites Length: " + Sprites.Length);
 
         return Sprites[index];
     }
