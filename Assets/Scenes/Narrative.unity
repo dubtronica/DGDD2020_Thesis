@@ -540,10 +540,24 @@ MonoBehaviour:
       singlayer: {fileID: 0}
       body: {fileID: 0}
       expression: {fileID: 0}
+      allBodies: []
+      allExpressions: []
+  Jassaninn:
+    charname: 
+    root: {fileID: 0}
+    renderers:
+      singlayer: {fileID: 0}
+      body: {fileID: 0}
+      expression: {fileID: 0}
+      allBodies: []
+      allExpressions: []
   quotes:
   - boop
   - boopbeep
   - booooooop
+  targetPos: {x: 1, y: 0}
+  speed: 10
+  jassabodyindex: 1
 --- !u!114 &781027618
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -46,4 +46,13 @@ public class NarrativeCharacterManager : MonoBehaviour
         return newNC;
 
     }
+
+    public class PredefinedPositions
+    {
+        Vector2 left = new Vector2(0, 0);
+        Vector2 right = new Vector2(0, 1f);
+        Vector2 mid = new Vector2(0, 0.5f);
+    }
+
+    public static PredefinedPositions predefpos;
 }
