@@ -24,18 +24,16 @@ public class GlobalFuncsDialog : MonoBehaviour
             }
             else
             {
-                Debug.Log(i + "Alpha value: " + img.color.a);
                 if(img.color.a > 0)
                 {
                     img.color = setAlpha(img.color, smooth ? Mathf.Lerp(img.color.a, 0f, speed) : Mathf.MoveTowards(img.color.a, 0f, speed));
                     valueChanged = true;
+                    
                 }
-                else
-                {
-                    allImages.RemoveAt(i);
-                    DestroyImmediate(img.gameObject);
-                    continue;
-                }
+                allImages.RemoveAt(i);
+                //DestroyImmediate(img.gameObject);
+                Debug.Log(img.gameObject.name);
+                continue;
             }
         }
 
