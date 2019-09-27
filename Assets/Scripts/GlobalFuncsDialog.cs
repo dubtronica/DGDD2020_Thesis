@@ -24,6 +24,7 @@ public class GlobalFuncsDialog : MonoBehaviour
             }
             else
             {
+                Debug.Log(i);
                 if(img.color.a > 0)
                 {
                     img.color = setAlpha(img.color, smooth ? Mathf.Lerp(img.color.a, 0f, speed) : Mathf.MoveTowards(img.color.a, 0f, speed));

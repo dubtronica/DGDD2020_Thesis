@@ -96,16 +96,24 @@ public class NarrativeCharacter
     /// </summary>
     public Sprite GetBodySprite(int index = 0)
     {
-        Sprite[] Sprites = Resources.LoadAll<Sprite>("NarrativeDummyCharacters/" + charname + "/Body");
+        //Sprite[] Sprites = Resources.LoadAll<Sprite>("NarrativeDummyCharacters/" + charname + "/Body");
 
-        return Sprites[index];
+        //return Sprites[index];
+
+        Sprite sprite = Resources.Load<Sprite>("NarrativeDummyCharacters/" + charname + "/Body/" + charname.ToLower() + "body_" + index);
+
+        return sprite;
     }
 
     public Sprite GetExpressionSprite(int index = 0)
     {
-        Sprite[] Sprites = Resources.LoadAll<Sprite>("NarrativeDummyCharacters/" + charname + "/Expressions");
+        //Sprite[] Sprites = Resources.LoadAll<Sprite>("NarrativeDummyCharacters/" + charname + "/Expressions");
 
-        return Sprites[index];
+        //return Sprites[index];
+
+        Sprite sprite = Resources.Load<Sprite>("NarrativeDummyCharacters/" + charname + "/Expressions/" + charname.ToLower() + "_" + index);
+
+        return sprite;
     }
 
 
@@ -153,8 +161,6 @@ public class NarrativeCharacter
         for(int i = 0; i < renderers.allBodies.Count; i++)
         {
             Image img = renderers.allBodies[i];
-            //Debug.Log(img.sprite.name + " " + sprite.name + " " + (img.sprite == sprite));
-            Debug.Log("Renderers Body Count:" + renderers.allBodies.Count);
             if (img.sprite == sprite)
             {
                 renderers.body.sprite = sprite;
@@ -163,7 +169,7 @@ public class NarrativeCharacter
         }
 
         if (renderers.body.sprite != sprite)
-        {
+        { 
             Image image = GameObject.Instantiate(renderers.body.gameObject, renderers.body.transform.parent).GetComponent<Image>();
             image.sprite = sprite;
             renderers.allBodies.Add(image);
@@ -210,7 +216,7 @@ public class NarrativeCharacter
             }
         }
 
-        if (renderers.body.sprite != sprite)
+        if (renderers.expression.sprite != sprite)
         {
             Image image = GameObject.Instantiate(renderers.expression.gameObject, renderers.expression.transform.parent).GetComponent<Image>();
             image.sprite = sprite;
