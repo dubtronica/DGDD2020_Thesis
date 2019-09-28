@@ -39,7 +39,7 @@ public class TestCharManager : MonoBehaviour
 
     public int jassabodyindex;
 
-    public List<string> quotes = getDialogues("Resources\\sampledialogue.txt");
+    public List<string> quotes = getDialogues("Assets\\Resources\\sampledialogue.txt");
 
 
     // Update is called once per frame
