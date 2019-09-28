@@ -629,15 +629,9 @@ MonoBehaviour:
       allExpressions: []
   targetPos: {x: 1, y: 0}
   speed: 10
+  t1: {fileID: 2800000, guid: 0baf0e9a59c710d439d48432a05c678f, type: 3}
+  t2: {fileID: 2800000, guid: 8c69e2d84a177d942b0998b21cea77a9, type: 3}
   jassabodyindex: 1
-  quotes:
-  - Spindella:OK sis, what's this about?
-  - Jassaninn:Uh... uh... I smoked weed?
-  - 'Jassaninn:And cocaine *hic* '
-  - Jassaninn:And Methamphetamine *hic*
-  - Jassaninn:On your bed. *hic*
-  - Spindella:You WHAT?!
-  - Jassaninn:OK BYE!
 --- !u!114 &781027618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,7 +665,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781027616}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6229c1064c4da63429367aed94ddfa33, type: 3}
   m_Name: 
