@@ -182,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &250046333
 RectTransform:
   m_ObjectHideFlags: 0
@@ -678,6 +678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tex1: {fileID: 2800000, guid: 8c69e2d84a177d942b0998b21cea77a9, type: 3}
   tex2: {fileID: 2800000, guid: 0baf0e9a59c710d439d48432a05c678f, type: 3}
+  flag: 0
 --- !u!1 &900263830
 GameObject:
   m_ObjectHideFlags: 0
