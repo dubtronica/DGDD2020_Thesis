@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -11,50 +12,85 @@ public class CharacterDetails : MonoBehaviour
 	public Button characterPic;
 	public Text characterName;
 	//public Button characterButton;
-	public Image fullChar;
+	public Image pic, fullChar;
 	public Character character;
 	public Image characterBox;
-	private PlaceSprite placeSprite;
 	public Sprite unselected;
-	int timesClicked = 0;
 	
 	Vector3 start, end;
 	public Transform fullpic;
+	
+	//temporary stuff
+	private DragCharacter dragScript;
+	private TileScript tileScript;
+	
+	public Placements placement;
+	
+	public bool alreadyPlaced = false;
+	public int tileNum;
+	
+	int count = 0;
+	
+	public Image charOnTile;
 	
     // Start is called before the first frame update
     void Start()
     {
 		characterBox.enabled = true;
-		Image pic = characterPic.GetComponent<Image>();
+		pic = characterPic.GetComponent<Image>();
 		pic.enabled = true;
-		//characterPic.image.enabled = true;
-		placeSprite = fullChar.GetComponent<PlaceSprite>();
+
         fullChar.enabled = false;
 		characterPic.onClick.AddListener(chooseCharacter);
-		//rb = fullChar.GetComponent<Rigidbody2D>();
+
 		fullpic = fullChar.GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(timesClicked % 2 == 0){
-			fullChar.enabled = false;
-		}
 		
-		if(placeSprite.place == true && timesClicked % 2 == 0){
-			placeSprite.box.sprite = unselected;
-			//fullChar.transform.position = placeSprite.originalPos;
-			placeSprite.place = false;
-			placeSprite.num = 0;
-			placeSprite.collide = false;
+		try
+		{
+			
+			if(dragScript!= null && dragScript.returned == true){
+				Destroy(pic.gameObject.GetComponent<DragCharacter>());
+				Debug.Log("destroy???");
+				count = 0;
+			}
+			
+			charOnTile = placement.getCharacter(tileNum);
+			
+		}
+		catch(NullReferenceException exception)
+		{
+		   
 		}
 		
     }
 	
 	public void chooseCharacter(){
-		fullChar.enabled = true;
-		timesClicked++;
+		
+		if(alreadyPlaced == true){
+			
+			Destroy(charOnTile);
+			placement.setCharacter(tileNum, null, null);
+			alreadyPlaced = false;
+			placement.tilesTaken--;
+		}
+		else{
+			
+			count++;
+		
+			placement.selectedCharacter = character;
+			placement.selectedCharacterFull = fullChar;
+			Debug.Log(character.name + " selected");
+			
+			dragScript = pic.gameObject.AddComponent<DragCharacter>();
+			dragScript.picture = pic;
+		}
+
+		
 	}
 	
 	//so after placing it, make another object on that exact area, that you can stack info on
