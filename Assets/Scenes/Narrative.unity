@@ -182,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &250046333
 RectTransform:
   m_ObjectHideFlags: 0
@@ -397,6 +397,7 @@ GameObject:
   - component: {fileID: 506092562}
   - component: {fileID: 506092561}
   - component: {fileID: 506092560}
+  - component: {fileID: 506092564}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -486,6 +487,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &506092564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506092559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e56391402137884d87b83126bfcffe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background:
+    root: {fileID: 1964782849}
+    newIMGObjectRef: {fileID: 1446229065}
+    activeImage: {fileID: 0}
+    allImages: []
+  foreground:
+    root: {fileID: 0}
+    newIMGObjectRef: {fileID: 0}
+    activeImage: {fileID: 0}
+    allImages: []
+  cinematics:
+    root: {fileID: 0}
+    newIMGObjectRef: {fileID: 0}
+    activeImage: {fileID: 0}
+    allImages: []
 --- !u!1 &758118389
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +589,7 @@ GameObject:
   - component: {fileID: 781027619}
   - component: {fileID: 781027618}
   - component: {fileID: 781027617}
+  - component: {fileID: 781027620}
   m_Layer: 0
   m_Name: Testers
   m_TagString: Untagged
@@ -635,6 +664,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &781027620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781027616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6229c1064c4da63429367aed94ddfa33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tex1: {fileID: 2800000, guid: 8c69e2d84a177d942b0998b21cea77a9, type: 3}
+  tex2: {fileID: 2800000, guid: 0baf0e9a59c710d439d48432a05c678f, type: 3}
 --- !u!1 &900263830
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +689,7 @@ GameObject:
   - component: {fileID: 900263831}
   - component: {fileID: 900263832}
   m_Layer: 5
-  m_Name: FGLayer (1)
+  m_Name: Cinematics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

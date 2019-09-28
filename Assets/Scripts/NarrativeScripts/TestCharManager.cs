@@ -10,10 +10,13 @@ public class TestCharManager : MonoBehaviour
         List<string> dialogs = new List<string>();
         using(StreamReader sr = new StreamReader(path))
         {
-            while(sr.Peek() >= 0)
+            string line;
+            while(!sr.EndOfStream)
                 dialogs.Add(sr.ReadLine());
 
+            sr.Close();
         }
+
 
         return dialogs;
         
@@ -39,7 +42,7 @@ public class TestCharManager : MonoBehaviour
 
     public int jassabodyindex;
 
-    public List<string> quotes = getDialogues("Assets\\Resources\\sampledialogue.txt");
+    public List<string> quotes = getDialogues("Assets\\sampledialogue2.txt");
 
 
     // Update is called once per frame
@@ -50,6 +53,7 @@ public class TestCharManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log(quotes.Count);
             if (i < quotes.Count)
             {
                 string[] dialog = quotes[i].Split(':');
