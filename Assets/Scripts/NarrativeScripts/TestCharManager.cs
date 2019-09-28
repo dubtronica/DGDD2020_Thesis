@@ -25,11 +25,14 @@ public class TestCharManager : MonoBehaviour
     public NarrativeCharacter Spindellia, Jassaninn;
 
     // Start is called before the first frame update
+
+    BGFGCineController controls;
     void Start()
     {
         Spindellia = NarrativeCharacterManager.instance.getCharacter("Spindella", characterEnabledOnStart: false);
         Jassaninn = NarrativeCharacterManager.instance.getCharacter("Jassaninn", characterEnabledOnStart: false);
         NarrativeDialogue.instance.speechPanel.SetActive(false);
+        controls = BGFGCineController.instance;
 
     }
 
@@ -40,10 +43,13 @@ public class TestCharManager : MonoBehaviour
     public Vector2 targetPos;
     public float speed;
 
+    public Texture t1, t2;
+
     public int jassabodyindex;
 
-    public List<string> quotes = getDialogues("Assets\\sampledialogue2.txt");
+    List<string> quotes = getDialogues("Assets\\Resources\\sampledialogue2.txt");
 
+ 
 
     // Update is called once per frame
     void Update()
@@ -51,9 +57,10 @@ public class TestCharManager : MonoBehaviour
         Jassaninn.setPos(new Vector2(0, 0));
         Spindellia.setPos(new Vector2(1, 0));
 
+        BGFGCineController.Layer bground = controls.background;
+
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(quotes.Count);
             if (i < quotes.Count)
             {
                 string[] dialog = quotes[i].Split(':');
@@ -65,6 +72,14 @@ public class TestCharManager : MonoBehaviour
                 else if (dialog[0] == "Jassaninn")
                 {
                     Jassaninn.Say(dialog[1]);
+                }
+
+                if(dialog[1].Contains("snow"))
+                {
+                    bground.setTexture(t1);
+                } else if (dialog[1].Contains("STARS"))
+                {
+                    bground.setTexture(t2);
                 }
 
                 if (i > 1)
@@ -81,12 +96,15 @@ public class TestCharManager : MonoBehaviour
                 {
                     Spindellia.TransitionExpression(Spindellia.GetExpressionSprite(1), 5f, true);
                 }
+                if(i > 7)
+                {
+                    Spindellia.enabled = false;
+                }
             }
             else
             {
                 NarrativeDialogue.instance.CloseDialogue();
                 Jassaninn.enabled = false;
-                Spindellia.enabled = false;
             }
 
             i++;
