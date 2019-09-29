@@ -9,6 +9,7 @@ public class NarrativeCharacter
     public string charname;
     public RectTransform root;
     NarrativeDialogue nd;
+    BoxDialog bd;
 
     public bool isMultiLayerCharacter { get { return renderers.singlayer == null; } }
     public bool enabled { get { return root.gameObject.activeInHierarchy; } set { root.gameObject.SetActive(value); } }
@@ -262,6 +263,7 @@ public class NarrativeCharacter
         }
 
         nd = NarrativeDialogue.instance;
+        bd = BoxDialog.instance;
         enabled = enableOnStart;
     }
 

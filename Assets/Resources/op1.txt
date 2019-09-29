@@ -7,3 +7,4 @@ DrEdward:You see, we’re actually simulating medicines, immune cells, and micro
 DrEdward:It’s got combat and other cool stuff.:false
 DrArchie:So, you in?:false
 DrArchie: Alright! Let’s get started.:true
+DBox:End of Scene. WHOOOOOOO!

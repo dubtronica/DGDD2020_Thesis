@@ -40,8 +40,6 @@ public class BGFGCineController : MonoBehaviour
                 if (activeImage == null)
                 {
                     createNewActiveImage();
-                    Debug.Log("Active image created");
-                    Debug.Log("allImages count: " + allImages.Count);
                 }
                 
 

@@ -31,6 +31,7 @@ public class NarrativeDialogue : MonoBehaviour
         speaking = StartCoroutine(Speaking(speech, true, speaker));
     }
 
+    //to stop the character from speaking
     public void silence()
     {
         if (isSpeaking)
@@ -85,15 +86,56 @@ public class NarrativeDialogue : MonoBehaviour
         speechPanel.SetActive(false);
     }
 
+    public void DBdisplay(string speech)
+    {
+        DBsilence();
+        displaying = StartCoroutine(Displaying(speech));
+    }
+
+    public void DBsilence()
+    {
+        if (isDisplaying)
+        {
+            StopCoroutine(displaying);
+        }
+        displaying = null;
+    }
+
+    public bool isDisplaying { get { return displaying != null; } } //bool check for speaking characters
+    Coroutine displaying = null;
+
+    IEnumerator Displaying(string speech)
+    {
+        dboxpanel.SetActive(true);
+
+        isWaitingForUser = false;
+        dboxtext.text = speech;
+
+        isWaitingForUser = true;
+        while (isWaitingForUser)
+            yield return new WaitForEndOfFrame();
+
+        silence();
+    }
+
+    public void CloseDBDialogue()
+    {
+        DBsilence();
+        dboxpanel.SetActive(false);
+    }
+
     [System.Serializable]
     public class DialogueElements
     {
-        public GameObject speechpanel;
-        public Text charactername, speechText;
+        public GameObject speechpanel, dboxpanel;
+        public Text charactername, speechText, dboxtext;
 
     }
 
     public GameObject speechPanel { get { return elems.speechpanel; } }
     public Text charactername { get { return elems.charactername; } }
     public Text speechText { get { return elems.speechText; } }
+
+    public GameObject dboxpanel { get { return elems.dboxpanel; } }
+    public Text dboxtext { get { return elems.dboxtext; } }
 }

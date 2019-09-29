@@ -36,25 +36,21 @@ public class TestCharManager : MonoBehaviour
         DrMichael = NarrativeCharacterManager.instance.getCharacter("DrMichael", characterEnabledOnStart: false);
 
 
+
         NarrativeDialogue.instance.speechPanel.SetActive(false);
+        NarrativeDialogue.instance.dboxpanel.SetActive(false);
         try
         {
             controls = BGFGCineController.instance;
             Debug.Log("BG controls initiated!");
-        } catch (System.Exception e)
+        }
+        catch (System.Exception e)
         {
             Debug.LogError("BG controls failed to initiate.");
         }
-        
-
     }
 
-   
-
     int i = 0;
-
-    public Vector2 targetPos;
-    public float speed;
 
     public Texture t1;
 
@@ -95,6 +91,15 @@ public class TestCharManager : MonoBehaviour
                     DrArchie.Say(dialog[1], bool.Parse(dialog[2]));
                 }
 
+                if (dialog[0] == "DBox")
+                {
+                    NarrativeDialogue.instance.DBdisplay(dialog[1]);
+                    DrEdward.disable();
+                    DrArchie.disable();
+                    DrMichael.disable();
+                    NarrativeDialogue.instance.CloseDialogue();
+                }
+
                 /*
                 if (dialog[1].Contains("snow"))
                 {
@@ -131,6 +136,7 @@ public class TestCharManager : MonoBehaviour
                 DrArchie.disable();
                 DrMichael.disable();
                 NarrativeDialogue.instance.CloseDialogue();
+                NarrativeDialogue.instance.CloseDBDialogue();
             }
 
             i++;
