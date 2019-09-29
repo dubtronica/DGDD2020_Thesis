@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class NarrativeCharacter 
 {
     public string charname;
-    [HideInInspector] public RectTransform root;
+    public RectTransform root;
     NarrativeDialogue nd;
 
     public bool isMultiLayerCharacter { get { return renderers.singlayer == null; } }
@@ -100,7 +100,7 @@ public class NarrativeCharacter
 
         //return Sprites[index];
 
-        Sprite sprite = Resources.Load<Sprite>("NarrativeDummyCharacters/" + charname + "/Body/" + charname.ToLower() + "body_" + index);
+        Sprite sprite = Resources.Load<Sprite>("NarrativeCharacters/" + charname + "/Body/" + charname.ToLower() + "body_" + index);
 
         return sprite;
     }
@@ -111,7 +111,7 @@ public class NarrativeCharacter
 
         //return Sprites[index];
 
-        Sprite sprite = Resources.Load<Sprite>("NarrativeDummyCharacters/" + charname + "/Expressions/" + charname.ToLower() + "_" + index);
+        Sprite sprite = Resources.Load<Sprite>("NarrativeCharacters/" + charname + "/Expressions/" + charname.ToLower() + "_" + index);
 
         return sprite;
     }
@@ -239,8 +239,8 @@ public class NarrativeCharacter
     public NarrativeCharacter(string n, bool enableOnStart = true)
     {
         NarrativeCharacterManager ncm = NarrativeCharacterManager.instance;
-        GameObject ncprefab = Resources.Load("NarrativeDummyCharacters/Char[" + n + "]") as GameObject;
-        GameObject gob = GameObject.Instantiate(ncprefab, ncm.charPanel);
+        GameObject ncprefab = Resources.Load("NarrativeCharacters/Char[" + n + "]") as GameObject;
+        GameObject gob = GameObject.Instantiate(ncprefab, ncm.charPanel);      
 
         root = gob.GetComponent<RectTransform>();
         charname = n;

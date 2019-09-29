@@ -54,5 +54,5 @@ public class NarrativeCharacterManager : MonoBehaviour
         Vector2 mid = new Vector2(0, 0.5f);
     }
 
-    public static PredefinedPositions predefpos;
+    public static PredefinedPositions predefpos = new PredefinedPositions();
 }

@@ -1,0 +1,9 @@
+DrMichael:Hello, <player name>.:true
+DrMichael:You must be our new assistant.:true 
+DrMichael:You see, Drs. Archie, Edward, and I are the heads of a certain educational project which we will introduce to students around the country.:false
+DrEdward:Is this our new assistant?:true 
+DrEdward:Welcome, welcome to our lab!:true
+DrEdward:You see, we’re actually simulating medicines, immune cells, and microbes in a fun game everyone can enjoy.:false
+DrEdward:It’s got combat and other cool stuff.:false
+DrArchie:So, you in?:true
+DrArchie:Alright! Let’s get started.:false

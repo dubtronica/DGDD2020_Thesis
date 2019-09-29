@@ -22,17 +22,31 @@ public class TestCharManager : MonoBehaviour
         
     }
 
-    public NarrativeCharacter Spindellia, Jassaninn;
+    public NarrativeCharacter Spindellia, Jassaninn, DrMichael, DrArchie, DrEdward;
 
     // Start is called before the first frame update
 
     BGFGCineController controls;
     void Start()
     {
-        Spindellia = NarrativeCharacterManager.instance.getCharacter("Spindella", characterEnabledOnStart: false);
-        Jassaninn = NarrativeCharacterManager.instance.getCharacter("Jassaninn", characterEnabledOnStart: false);
+        //Spindellia = NarrativeCharacterManager.instance.getCharacter("Spindella", characterEnabledOnStart: false);
+        //Jassaninn = NarrativeCharacterManager.instance.getCharacter("Jassaninn", characterEnabledOnStart: false);
+
+        //DrArchie = NarrativeCharacterManager.instance.getCharacter("DrArchie", characterEnabledOnStart: false);
+        //DrEdward = NarrativeCharacterManager.instance.getCharacter("DrEdward", characterEnabledOnStart: false);
+        DrMichael = NarrativeCharacterManager.instance.getCharacter("DrMichael", characterEnabledOnStart: false);
+
+
         NarrativeDialogue.instance.speechPanel.SetActive(false);
-        controls = BGFGCineController.instance;
+        try
+        {
+            controls = BGFGCineController.instance;
+            Debug.Log("BG controls initiated!");
+        } catch (System.Exception e)
+        {
+
+        }
+        
 
     }
 
@@ -43,11 +57,11 @@ public class TestCharManager : MonoBehaviour
     public Vector2 targetPos;
     public float speed;
 
-    public Texture t1, t2;
+    public Texture t1;
 
     public int jassabodyindex;
 
-    List<string> quotes = getDialogues("Assets\\Resources\\sampledialogue2.txt");
+    List<string> quotes = getDialogues("Assets\\Resources\\op1.txt");
 
  
 
@@ -57,31 +71,40 @@ public class TestCharManager : MonoBehaviour
         Jassaninn.setPos(new Vector2(0, 0));
         Spindellia.setPos(new Vector2(1, 0));
 
-        BGFGCineController.Layer bground = controls.background;
+        //BGFGCineController.Layer bground = controls.background;
+
+       // bground.setTexture(t1);
 
         if (Input.GetMouseButtonDown(0))
         {
+            /*
             if (i < quotes.Count)
             {
                 string[] dialog = quotes[i].Split(':');
 
-                if (dialog[0] == "Spindella")
+                if (dialog[0] == "DrMichael")
                 {
-                    Spindellia.Say(dialog[1]);
+                    DrMichael.Say(dialog[1], bool.Parse(dialog[2]));
                 }
-                else if (dialog[0] == "Jassaninn")
+                else if (dialog[0] == "DrEdward")
                 {
-                    Jassaninn.Say(dialog[1]);
+                    DrEdward.Say(dialog[1], bool.Parse(dialog[2]));
+                }
+                else if (dialog[0] == "DrArchie")
+                {
+                    DrArchie.Say(dialog[1], bool.Parse(dialog[2]));
                 }
 
-                if(dialog[1].Contains("snow"))
+                /*
+                if (dialog[1].Contains("snow"))
                 {
                     bground.setTexture(t1);
                 } else if (dialog[1].Contains("STARS"))
                 {
                     bground.setTexture(t2);
                 }
-
+                
+            
                 if (i > 1)
                 {
                     Jassaninn.TransitionExpression(Jassaninn.GetExpressionSprite(1), 5f, true);
@@ -104,10 +127,12 @@ public class TestCharManager : MonoBehaviour
             else
             {
                 NarrativeDialogue.instance.CloseDialogue();
-                Jassaninn.enabled = false;
             }
 
             i++;
+            */
+
+            DrMichael.Say("Hi!");
         }
     }
 }
