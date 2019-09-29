@@ -655,8 +655,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elems:
     speechpanel: {fileID: 1628139937}
+    dboxpanel: {fileID: 1201992562}
     charactername: {fileID: 1111280810}
     speechText: {fileID: 1991155874}
+    dboxtext: {fileID: 708450264}
   isWaitingForUser: 0
   targetSpeech: 
 --- !u!114 &758118393
