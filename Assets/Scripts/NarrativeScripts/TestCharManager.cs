@@ -10,7 +10,6 @@ public class TestCharManager : MonoBehaviour
         List<string> dialogs = new List<string>();
         using(StreamReader sr = new StreamReader(path))
         {
-            string line;
             while(!sr.EndOfStream)
                 dialogs.Add(sr.ReadLine());
 
@@ -29,11 +28,11 @@ public class TestCharManager : MonoBehaviour
     BGFGCineController controls;
     void Start()
     {
-        //Spindellia = NarrativeCharacterManager.instance.getCharacter("Spindella", characterEnabledOnStart: false);
-        //Jassaninn = NarrativeCharacterManager.instance.getCharacter("Jassaninn", characterEnabledOnStart: false);
+        Spindellia = NarrativeCharacterManager.instance.getCharacter("Spindella", characterEnabledOnStart: false);
+        Jassaninn = NarrativeCharacterManager.instance.getCharacter("Jassaninn", characterEnabledOnStart: false);
 
-        //DrArchie = NarrativeCharacterManager.instance.getCharacter("DrArchie", characterEnabledOnStart: false);
-        //DrEdward = NarrativeCharacterManager.instance.getCharacter("DrEdward", characterEnabledOnStart: false);
+        DrArchie = NarrativeCharacterManager.instance.getCharacter("DrArchie", characterEnabledOnStart: false);
+        DrEdward = NarrativeCharacterManager.instance.getCharacter("DrEdward", characterEnabledOnStart: false);
         DrMichael = NarrativeCharacterManager.instance.getCharacter("DrMichael", characterEnabledOnStart: false);
 
 
@@ -44,7 +43,7 @@ public class TestCharManager : MonoBehaviour
             Debug.Log("BG controls initiated!");
         } catch (System.Exception e)
         {
-
+            Debug.LogError("BG controls failed to initiate.");
         }
         
 
@@ -68,18 +67,19 @@ public class TestCharManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Jassaninn.setPos(new Vector2(0, 0));
-        Spindellia.setPos(new Vector2(1, 0));
+        DrMichael.setPos(new Vector2(0, 0));
+        DrEdward.setPos(new Vector2(1, 0));
+        DrArchie.setPos(new Vector2(0.5f, 0));
 
-        //BGFGCineController.Layer bground = controls.background;
+        BGFGCineController.Layer bground = controls.background;
 
-       // bground.setTexture(t1);
+        bground.setTexture(t1);
 
         if (Input.GetMouseButtonDown(0))
         {
-            /*
             if (i < quotes.Count)
             {
+                
                 string[] dialog = quotes[i].Split(':');
 
                 if (dialog[0] == "DrMichael")
@@ -122,17 +122,19 @@ public class TestCharManager : MonoBehaviour
                 if(i > 7)
                 {
                     Spindellia.enabled = false;
-                }
+                }*/
+
             }
             else
             {
+                DrEdward.disable();
+                DrArchie.disable();
+                DrMichael.disable();
                 NarrativeDialogue.instance.CloseDialogue();
             }
 
             i++;
-            */
-
-            DrMichael.Say("Hi!");
+            
         }
     }
 }

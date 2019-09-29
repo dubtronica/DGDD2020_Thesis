@@ -27,6 +27,14 @@ public class BGFGCineController : MonoBehaviour
 
         public void setTexture(Texture texture, bool loopMovie = true)
         {
+           if(activeImage != null && activeImage.texture != null)
+            {
+                MovieTexture mv = texture as MovieTexture;
+
+                if (mv != null)
+                    mv.Stop();
+            }
+
             if(texture != null)
             {
                 if (activeImage == null)
@@ -46,10 +54,7 @@ public class BGFGCineController : MonoBehaviour
                 {
                     mv.loop = loopMovie;
                     mv.Play();
-                } else
-                {
-
-                }
+                } 
             }
             else
             {
@@ -60,6 +65,70 @@ public class BGFGCineController : MonoBehaviour
                     activeImage = null;
                 }
             }
+        }
+
+        public void TransitionToTexture(Texture texture, float speed = 2f, bool smooth = false, bool loopIfMovie = true)
+        {
+            if (activeImage != null && activeImage.texture == texture)
+                return;
+
+            stopTransitioning();
+
+            transitioning = BGFGCineController.instance.StartCoroutine(Transitioning(texture, speed, smooth, loopIfMovie));
+
+        }
+
+        void stopTransitioning()
+        {
+            if (isTransitioning)
+            {
+                BGFGCineController.instance.StopCoroutine(transitioning);
+            }
+            transitioning = null;
+
+
+        }
+
+        Coroutine transitioning = null;
+        public bool isTransitioning { get { return transitioning != null; } }
+        IEnumerator Transitioning(Texture texture, float speed, bool smooth, bool loopIfMovie)
+        {
+            if(texture != null)
+            {
+                for (int i = 0; i < allImages.Count; i++)
+                {
+                    RawImage img = allImages[i];
+                    if (img.texture == texture)
+                    {
+                        activeImage = img;
+                        break;
+                    }
+                }
+
+                if (activeImage == null || activeImage.texture != texture)
+                {
+                    createNewActiveImage();
+                    activeImage.texture = texture;
+                    activeImage.color = GlobalFuncsDialog.setAlpha(activeImage.color, 0f);
+
+                    MovieTexture mv = texture as MovieTexture;
+
+                    if (mv != null)
+                    {
+                        mv.loop = loopIfMovie;
+                        mv.Play();
+                    }
+                }
+            } else
+            {
+                activeImage = null;
+            }
+
+            while (GlobalFuncsDialog.TransitionRawImages(ref activeImage, ref allImages, speed, smooth))
+                yield return new WaitForEndOfFrame();
+
+            stopTransitioning();
+
         }
 
         void createNewActiveImage()

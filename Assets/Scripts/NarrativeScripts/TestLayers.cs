@@ -19,13 +19,29 @@ public class TestLayers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        BGFGCineController.Layer layer = controls.background;
+        BGFGCineController.Layer layer = null;
 
+        if (Input.GetKey(KeyCode.Q))
+        {
+            layer = controls.background;
+            Debug.Log("background");
+        }
+            
+        if (Input.GetKey(KeyCode.W))
+        {
+            layer = controls.cinematics;
+            Debug.Log("cinematic");
+        }
+            
+        if (Input.GetKey(KeyCode.E))
+        {
+            layer = controls.foreground;
+            Debug.Log("foreground");
+        }
 
-
-        if (flag)
-            layer.setTexture(tex1);
-        else
+        if (Input.GetMouseButtonDown(1))
             layer.setTexture(tex2);
+        if (Input.GetMouseButtonDown(0))
+            layer.setTexture(tex1);
     }
 }
