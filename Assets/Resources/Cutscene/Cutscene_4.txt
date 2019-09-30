@@ -1,0 +1,6 @@
+DrEdward:Looks like you’ve beaten a wave of bacteria, but there are more on the way!:false
+DBox:The top right corner of your screen shows how many waves your party has to defeat to clear the stage.
+DBox:On the upper left is your health bar. 
+DBox:Your party has shared health, so when one gets attacked, everybody feels it---just like your human body! 
+DBox:Don’t let it drop to 0.
+DrMichael:Now, (player name). Clear the stage.:false

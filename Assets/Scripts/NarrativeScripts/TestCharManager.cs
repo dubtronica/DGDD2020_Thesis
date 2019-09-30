@@ -54,28 +54,16 @@ public class TestCharManager : MonoBehaviour
 
     public Texture t1;
 
-    public int jassabodyindex;
+    
 
-    List<string> quotes = getDialogues("Assets\\Resources\\op1.txt");
-
- 
-
-    // Update is called once per frame
-    void Update()
+    public void playCutscene(int num)
     {
-        DrMichael.setPos(new Vector2(0, 0));
-        DrEdward.setPos(new Vector2(1, 0));
-        DrArchie.setPos(new Vector2(0.5f, 0));
-
-        BGFGCineController.Layer bground = controls.background;
-
-        bground.setTexture(t1);
-
+        List<string> quotes = getDialogues("Assets\\Resources\\Cutscene\\Cutscene_"+num+".txt");
         if (Input.GetMouseButtonDown(0))
         {
             if (i < quotes.Count)
             {
-                
+
                 string[] dialog = quotes[i].Split(':');
 
                 if (dialog[0] == "DrMichael")
@@ -100,35 +88,16 @@ public class TestCharManager : MonoBehaviour
                     NarrativeDialogue.instance.CloseDialogue();
                 }
 
-                /*
-                if (dialog[1].Contains("snow"))
+                if(dialog[0] == "...")
                 {
-                    bground.setTexture(t1);
-                } else if (dialog[1].Contains("STARS"))
-                {
-                    bground.setTexture(t2);
-                }
-                
-            
-                if (i > 1)
-                {
-                    Jassaninn.TransitionExpression(Jassaninn.GetExpressionSprite(1), 5f, true);
-                }
+                    DrEdward.disable();
+                    DrArchie.disable();
+                    DrMichael.disable();
+                    NarrativeDialogue.instance.CloseDialogue();
+                    NarrativeDialogue.instance.CloseDBDialogue();
 
-                if (i > 2)
-                {
-                    Jassaninn.TransitionBody(Jassaninn.GetBodySprite(1), 5f, true);
+                    NarrativeDialogue.instance.isWaitingForUser = true;
                 }
-
-                if(i > 4)
-                {
-                    Spindellia.TransitionExpression(Spindellia.GetExpressionSprite(1), 5f, true);
-                }
-                if(i > 7)
-                {
-                    Spindellia.enabled = false;
-                }*/
-
             }
             else
             {
@@ -140,7 +109,24 @@ public class TestCharManager : MonoBehaviour
             }
 
             i++;
-            
+
         }
+    }
+
+ 
+
+    // Update is called once per frame
+    void Update()
+    {
+        DrMichael.setPos(new Vector2(0, 0));
+        DrEdward.setPos(new Vector2(1, 0));
+        DrArchie.setPos(new Vector2(0.5f, 0));
+
+        BGFGCineController.Layer bground = controls.background;
+
+        bground.setTexture(t1);
+
+        playCutscene(2);
+
     }
 }
