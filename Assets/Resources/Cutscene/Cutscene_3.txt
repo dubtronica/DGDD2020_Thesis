@@ -1,4 +1,4 @@
 DrArchie:Looks like your first unit is charged up and ready to go!:false 
-DrArchie:Tap on his icon to see him unleash his special move.
+DrArchie:Tap on his icon to see him unleash his special move.:false
 ...
-DrArchie:THAT’S A LOT OF DAMAGE!!!
+DrArchie:THAT’S A LOT OF DAMAGE!!!:false

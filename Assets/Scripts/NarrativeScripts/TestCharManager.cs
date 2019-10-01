@@ -54,7 +54,7 @@ public class TestCharManager : MonoBehaviour
 
     public Texture t1;
 
-    
+    public int cutsceneChoice;
 
     public void playCutscene(int num)
     {
@@ -68,18 +68,20 @@ public class TestCharManager : MonoBehaviour
 
                 if (dialog[0] == "DrMichael")
                 {
+                    NarrativeDialogue.instance.CloseDBDialogue();
                     DrMichael.Say(dialog[1], bool.Parse(dialog[2]));
                 }
                 else if (dialog[0] == "DrEdward")
                 {
+                    NarrativeDialogue.instance.CloseDBDialogue();
                     DrEdward.Say(dialog[1], bool.Parse(dialog[2]));
                 }
                 else if (dialog[0] == "DrArchie")
                 {
+                    NarrativeDialogue.instance.CloseDBDialogue();
                     DrArchie.Say(dialog[1], bool.Parse(dialog[2]));
                 }
-
-                if (dialog[0] == "DBox")
+                else if (dialog[0] == "DBox")
                 {
                     NarrativeDialogue.instance.DBdisplay(dialog[1]);
                     DrEdward.disable();
@@ -126,7 +128,7 @@ public class TestCharManager : MonoBehaviour
 
         bground.setTexture(t1);
 
-        playCutscene(2);
+        playCutscene(cutsceneChoice);
 
     }
 }

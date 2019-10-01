@@ -1,0 +1,8 @@
+DrMichael: Here is where you can get ImmUnits to help you fight off diseases.:false
+DrMichael: The one on the left is for Prescriptions. Here’s some to try it now.:false
+...
+DrMichael: Happy?:false
+DrMichael: That's great!:true
+DrMichael: Meanwhile, the one on the right will give better ImmUnits, here’s some X to try it out.:false
+...
+DrMichael: Don’t forget to experiment with different ImmUnits and see their synergies.:false
