@@ -30,6 +30,7 @@ public class CharacterDetails : MonoBehaviour
 	public int tileNum;
 	
 	int count = 0;
+	TileScript  ts;
 	
 	public Image charOnTile;
 	
@@ -53,9 +54,9 @@ public class CharacterDetails : MonoBehaviour
 		try
 		{
 			
-			if(dragScript!= null && dragScript.returned == true){
+			if(dragScript!= null && dragScript.returned == true && alreadyPlaced == true){
 				Destroy(pic.gameObject.GetComponent<DragCharacter>());
-				Debug.Log("destroy???");
+				//Debug.Log("destroy");
 				count = 0;
 			}
 			
@@ -74,9 +75,14 @@ public class CharacterDetails : MonoBehaviour
 		if(alreadyPlaced == true){
 			
 			Destroy(charOnTile);
+			Debug.Log("destroy");
 			placement.setCharacter(tileNum, null, null);
 			alreadyPlaced = false;
 			placement.tilesTaken--;
+			ts = placement.allyTile[tileNum].GetComponent<TileScript>();
+			ts.isTaken = false;
+			ts.character = null;
+			ts.onTile = false;
 		}
 		else{
 			

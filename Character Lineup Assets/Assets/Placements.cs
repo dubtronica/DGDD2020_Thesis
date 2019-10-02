@@ -23,6 +23,7 @@ public class Placements : MonoBehaviour
 	
 	public GameObject[] SpawnedCharacters = new GameObject[numberOfCharacters];
 	public Character[] charactersInArena = new Character[tiles + 1];
+	public Image[] charactersInArenaPics = new Image[tiles + 1];
 	
 	public Character selectedCharacter;
 	public Image selectedCharacterFull;
@@ -37,7 +38,7 @@ public class Placements : MonoBehaviour
 		for(int i = 0; i < numberOfCharacters; i++){
 			SpawnedCharacters[i] = characterList.SpawnedCharacters[i];
 		}
-		
+
 		finished.onClick.AddListener(Finished);
 
     }
@@ -69,17 +70,19 @@ public class Placements : MonoBehaviour
 			}
 			
 		}
-		
-		File.WriteAllText(@"C:\Users\Nicole\DGDD Thesis\Assets\SaveFile.txt", save);
-		Debug.Log("finished, change scene");
+		string file = "Assets/SaveFile.txt";
+		//File.WriteAllText(@"C:\Users\Nicole\DGDD Thesis\Assets\SaveFile.txt", save);
+		File.WriteAllText(file, save);
+		SceneManager.LoadScene(0);
 	}
 	
 	public Image getCharacter(int tileNum){
-		return allyTile[tileNum];
+		return charactersInArenaPics[tileNum];
 	}
 	
 	public void setCharacter(int tileNum, Character character, Image pic){
-		allyTile[tileNum] = pic;
+		charactersInArenaPics[tileNum] = pic;
 		charactersInArena[tileNum] = character;
 	}
+	
 }

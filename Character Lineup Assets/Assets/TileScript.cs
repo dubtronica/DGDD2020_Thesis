@@ -20,6 +20,7 @@ public class TileScript : MonoBehaviour
 	public Image character;
 	
 	int numberOfCharacters = 3;
+	int releaseTimes = 0;
 	
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class TileScript : MonoBehaviour
         if(Input.GetMouseButtonUp(0) && isTaken == false && onTile == true && placement.tilesTaken < 5){
 			
 			InstantiateCharacterHere();
+			releaseTimes++;
 			placement.tilesTaken++;
 			
 			for(int i = 0; i < numberOfCharacters; i++){
@@ -45,6 +47,15 @@ public class TileScript : MonoBehaviour
 			}
 			
 		}
+		
+		//characterOnTile = placement.getCharacter(tileNum);
+		
+		/*if(placement.charactersInArena[tileNum] == null){
+			isTaken = false;
+			character = null;
+			
+		}
+		*/
     }
 	
 	public void InstantiateCharacterHere(){
