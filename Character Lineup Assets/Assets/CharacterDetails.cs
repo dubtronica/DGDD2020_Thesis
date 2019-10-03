@@ -10,9 +10,9 @@ public class CharacterDetails : MonoBehaviour
 {
 	
 	public Button characterPic;
-	public Text characterName;
+	public Text characterName, details;
 	//public Button characterButton;
-	public Image pic, fullChar;
+	public Image pic, fullChar, OTCpic;
 	public Character character;
 	public Image characterBox;
 	public Sprite unselected;
@@ -40,61 +40,77 @@ public class CharacterDetails : MonoBehaviour
 		characterBox.enabled = true;
 		pic = characterPic.GetComponent<Image>();
 		pic.enabled = true;
-
-        fullChar.enabled = false;
 		characterPic.onClick.AddListener(chooseCharacter);
-
-		fullpic = fullChar.GetComponent<Transform>();
+		
+		if(fullChar != null){
+			fullChar.enabled = false;
+			fullpic = fullChar.GetComponent<Transform>();
+		}
+		
     }
 
     // Update is called once per frame
     void Update()
     {
 		
-		try
-		{
-			
-			if(dragScript!= null && dragScript.returned == true && alreadyPlaced == true){
-				Destroy(pic.gameObject.GetComponent<DragCharacter>());
-				//Debug.Log("destroy");
-				count = 0;
+		if(fullChar != null){
+			try
+			{
+				
+				if(dragScript!= null && dragScript.returned == true && alreadyPlaced == true){
+					Destroy(pic.gameObject.GetComponent<DragCharacter>());
+					//Debug.Log("destroy");
+					count = 0;
+				}
+				
+				charOnTile = placement.getCharacter(tileNum);
+				
 			}
-			
-			charOnTile = placement.getCharacter(tileNum);
-			
+			catch(NullReferenceException exception)
+			{
+			   
+			}
 		}
-		catch(NullReferenceException exception)
-		{
-		   
-		}
+		
 		
     }
 	
 	public void chooseCharacter(){
 		
-		if(alreadyPlaced == true){
+		if(fullChar != null){
+			if(alreadyPlaced == true){
 			
-			Destroy(charOnTile);
-			Debug.Log("destroy");
-			placement.setCharacter(tileNum, null, null);
-			alreadyPlaced = false;
-			placement.tilesTaken--;
-			ts = placement.allyTile[tileNum].GetComponent<TileScript>();
-			ts.isTaken = false;
-			ts.character = null;
-			ts.onTile = false;
+				Destroy(charOnTile);
+				Debug.Log("destroy");
+				placement.setCharacter(tileNum, null, null);
+				alreadyPlaced = false;
+				placement.tilesTaken--;
+				ts = placement.allyTile[tileNum].GetComponent<TileScript>();
+				ts.isTaken = false;
+				ts.character = null;
+				ts.onTile = false;
+			}
+			else{
+				
+				count++;
+			
+				placement.selectedCharacter = character;
+				placement.selectedCharacterFull = fullChar;
+				Debug.Log(character.name + " selected");
+				
+				dragScript = pic.gameObject.AddComponent<DragCharacter>();
+				dragScript.picture = pic;
+			}
 		}
 		else{
 			
-			count++;
-		
-			placement.selectedCharacter = character;
-			placement.selectedCharacterFull = fullChar;
-			Debug.Log(character.name + " selected");
-			
-			dragScript = pic.gameObject.AddComponent<DragCharacter>();
-			dragScript.picture = pic;
+			OTCpic.sprite = character.characterHeadshot;
+			characterName.text = character.name;
+			details.text = character.description;
+						
 		}
+		
+		
 
 		
 	}

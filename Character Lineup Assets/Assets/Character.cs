@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum CharacterType{LEVI, ZORO, NATSU};
+public enum CharacterType{LEVI, ZORO, NATSU, VIRUS, BACTERIA, GERM, NEZUKO, HINATA};
 [CreateAssetMenu]
 
 public class Character : ScriptableObject{
