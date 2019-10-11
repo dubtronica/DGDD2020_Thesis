@@ -755,7 +755,7 @@ MonoBehaviour:
       allBodies: []
       allExpressions: []
   t1: {fileID: 2800000, guid: a93e58bc2bc99a448a19be13188020b4, type: 3}
-  cutsceneChoice: 5
+  cutsceneChoice: 0
 --- !u!114 &781027618
 MonoBehaviour:
   m_ObjectHideFlags: 0
