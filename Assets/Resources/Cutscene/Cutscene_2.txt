@@ -1,4 +1,4 @@
-DrMichael: You should be up against a handful of bacteria.:false
+DrMichael: You should be up against a colony of bacteria.:false
 DrMichael: These guys are nothing special, but can soak up a lot of damage.:false
 DBox:Your units attack one at a time. Luckily, you always start first. Tap on the screen to attack.
 ...
