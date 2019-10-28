@@ -21,7 +21,15 @@ public class TestCharManager : MonoBehaviour
         
     }
 
-    public NarrativeCharacter Spindellia, Jassaninn, DrMichael, DrArchie, DrEdward;
+    public NarrativeCharacter Spindellia, Jassaninn, DrMichael, DrArchie, DrEdward, DrYvette;
+
+    void disableAllCharacters()
+    {
+        DrMichael.disable();
+        DrYvette.disable();
+        DrArchie.disable();
+        DrEdward.disable();
+    }
 
     // Start is called before the first frame update
 
@@ -34,7 +42,7 @@ public class TestCharManager : MonoBehaviour
         DrArchie = NarrativeCharacterManager.instance.getCharacter("DrArchie", characterEnabledOnStart: false);
         DrEdward = NarrativeCharacterManager.instance.getCharacter("DrEdward", characterEnabledOnStart: false);
         DrMichael = NarrativeCharacterManager.instance.getCharacter("DrMichael", characterEnabledOnStart: false);
-
+        DrYvette = NarrativeCharacterManager.instance.getCharacter("DrYvette", characterEnabledOnStart: false);
 
 
         NarrativeDialogue.instance.speechPanel.SetActive(false);
@@ -69,6 +77,7 @@ public class TestCharManager : MonoBehaviour
                 if (dialog[0] == "DrMichael")
                 {
                     NarrativeDialogue.instance.CloseDBDialogue();
+                    DrYvette.disable();
                     DrMichael.Say(dialog[1], bool.Parse(dialog[2]));
                 }
                 else if (dialog[0] == "DrEdward")
@@ -81,20 +90,22 @@ public class TestCharManager : MonoBehaviour
                     NarrativeDialogue.instance.CloseDBDialogue();
                     DrArchie.Say(dialog[1], bool.Parse(dialog[2]));
                 }
+                else if (dialog[0] == "DrYvette")
+                {
+                    NarrativeDialogue.instance.CloseDBDialogue();
+                    DrMichael.disable();
+                    DrYvette.Say(dialog[1], bool.Parse(dialog[2]));
+                }
                 else if (dialog[0] == "DBox")
                 {
                     NarrativeDialogue.instance.DBdisplay(dialog[1]);
-                    DrEdward.disable();
-                    DrArchie.disable();
-                    DrMichael.disable();
+                    disableAllCharacters();
                     NarrativeDialogue.instance.CloseDialogue();
                 }
 
                 if(dialog[0] == "...")
                 {
-                    DrEdward.disable();
-                    DrArchie.disable();
-                    DrMichael.disable();
+                    disableAllCharacters();
                     NarrativeDialogue.instance.CloseDialogue();
                     NarrativeDialogue.instance.CloseDBDialogue();
 
@@ -103,9 +114,7 @@ public class TestCharManager : MonoBehaviour
             }
             else
             {
-                DrEdward.disable();
-                DrArchie.disable();
-                DrMichael.disable();
+                disableAllCharacters();
                 NarrativeDialogue.instance.CloseDialogue();
                 NarrativeDialogue.instance.CloseDBDialogue();
             }
@@ -123,6 +132,7 @@ public class TestCharManager : MonoBehaviour
         DrMichael.setPos(new Vector2(0, 0));
         DrEdward.setPos(new Vector2(1, 0));
         DrArchie.setPos(new Vector2(0.5f, 0));
+        DrYvette.setPos(new Vector2(0, 0));
 
         BGFGCineController.Layer bground = controls.background;
 

@@ -549,7 +549,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.049000002, y: 0.108}
   m_AnchorMax: {x: 0.91735446, y: 0.89218795}
-  m_AnchoredPosition: {x: 18.532013, y: -1.8999939}
+  m_AnchoredPosition: {x: 18.531982, y: -1.8999939}
   m_SizeDelta: {x: -3.4000244, y: 3.7999878}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &708450264
@@ -754,8 +754,17 @@ MonoBehaviour:
       expression: {fileID: 0}
       allBodies: []
       allExpressions: []
+  DrYvette:
+    charname: 
+    root: {fileID: 0}
+    renderers:
+      singlayer: {fileID: 0}
+      body: {fileID: 0}
+      expression: {fileID: 0}
+      allBodies: []
+      allExpressions: []
   t1: {fileID: 2800000, guid: a93e58bc2bc99a448a19be13188020b4, type: 3}
-  cutsceneChoice: 11
+  cutsceneChoice: 13
 --- !u!114 &781027618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,10 +1041,10 @@ RectTransform:
   m_Father: {fileID: 250046333}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.24300002, y: 0.31100002}
-  m_AnchorMax: {x: 0.81377083, y: 0.81500006}
-  m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: 5.4000244, y: 2}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1201992564
 MonoBehaviour:
@@ -1050,7 +1059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.39215684, b: 0.8678946, a: 0.56078434}
+  m_Color: {r: 0.11320752, g: 0.10946953, b: 0.112387575, a: 0.56078434}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

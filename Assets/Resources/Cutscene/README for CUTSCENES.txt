@@ -7,3 +7,4 @@ Cutscene text files labeled as Cutscene_n, where n is a number:
 6 - Gacha
 7 - 9 - second battle
 10 - 12 - ear infection story scene
+13 - measles pre-battle
