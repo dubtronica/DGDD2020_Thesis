@@ -1,5 +1,0 @@
-DrArchie: It seems that the simulated patient has nausea and vomiting.:false
-DrMichael: Vertigo as well? :false
-DrEdward: Ear sensors detect pain, hearing not so well.:false
-DrMichael: This must be a case of ear infection, caused by bacteria like <i>Streptococcus pneumoniae</i>.:false
-DrArchie: The same bacteria that causes strep throat and pneumonia.:false

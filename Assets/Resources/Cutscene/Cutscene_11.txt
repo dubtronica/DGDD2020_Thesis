@@ -1,7 +1,0 @@
-DrEdward: <Player Name>, you will be facing bacteria known as Streptococcus pneumoniae. These are Gram-positive bacteria.:false
-DBox:Bacteria are classified as either Gram positive or negative.
-DBox:Antibiotics can be classified into broad-spectrum, Gram-positive, or Gram-negative.
-DBox:Gram-positive antibiotics deal more damage to Gram-positive bacteria. Use this to your advantage!
-DrMichael:<i>Streptococcus pneumoniae</i> can deal two symptoms - Fever and Colds.:false
-DBox:The Colds symptom weakens party members for two turns.
-DrArchie: You go, <Player Name>.:false

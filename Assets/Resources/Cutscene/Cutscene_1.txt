@@ -1,6 +1,0 @@
-DrArchie: So here is where you set up an ‘army’ of meds and cells to fight baddies like bacteria and viruses.:false
-DrArchie: We’ve set the simulation environment to “toddler”, so have these two immune cells for now.:false
-DrEdward: Simply drag your units from the plate onto the simulation grid below.:false
-...
-DrEdward:Nicely done! You can tap on the units to see its stats.:false
-DrArchie:Looks like you should be ready! Tap DEPLOY to start the battle.:false

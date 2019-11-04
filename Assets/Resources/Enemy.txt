@@ -1,9 +1,0 @@
-A1 300 50 Negative Fever
-A2 250 50 Positive Pain
-NA
-A3 200 100 Positive Cold
-NA
-A4 150 100 Negative Diarrhea
-NA
-A5 100 50 Virus ColdPain
-NA

@@ -1,3 +1,0 @@
-DrEdward:Our assistant is getting better at this!:false
-DrArchie:I agree.:false
-DrMichael:Exceptional job, <player name>!:false
