@@ -9,6 +9,8 @@ public class BattleClick : MonoBehaviour, IPointerClickHandler
 {
     private BattleController bc;
     private DataController dataController;
+    private GameObject charBG;
+    public BattleAbility ability;
 
     #pragma warning disable CS0108
     public string name;
@@ -18,21 +20,41 @@ public class BattleClick : MonoBehaviour, IPointerClickHandler
     public int maxDamage;
     public int maxHealth;
     public int index;
-
-    public double weaknessMultiplier = 2;
-    public double resistanceMultiplier = 0.5;
-    public string weakness;
-    public string resistance;
+    public string symptoms;
+    public List<string> debuffs = new List<string>();
 
     public int charPosition;
-    private bool selectable = false;
+    public bool active = false;
+    public bool selectable = false;
+
+    public void addBG()
+    {
+        Canvas cv = bc.GetComponent<Canvas>();
+        charBG = new GameObject("BG");
+        RectTransform tempRT = gameObject.GetComponent<RectTransform>();
+        charBG.AddComponent<RectTransform>();
+        RectTransform toadd = charBG.GetComponent<RectTransform>();
+        toadd.anchorMin = tempRT.anchorMin;
+        toadd.anchorMax = tempRT.anchorMax;
+        toadd.anchoredPosition = tempRT.anchoredPosition;
+        toadd.sizeDelta = new Vector2(82, 82);
+        charBG.AddComponent<Image>();
+        charBG.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+        charBG.transform.SetParent(cv.transform, false);
+        charBG.transform.SetSiblingIndex(1);
+        originalPosBG = charBG.transform.position;
+    }
 
     public void Start()
     {
+        originalPos = gameObject.transform.position;
         bc = FindObjectOfType<BattleController>();
         dataController = FindObjectOfType<DataController>();
 
+        addBG();
+
         gameObject.AddComponent<Image>();
+        gameObject.GetComponent<Image>().color = new Color32(0, 0, 0, 100);
 
         string temp = gameObject.name;
         for (int x = 0; x < temp.Length; x++)
@@ -59,6 +81,9 @@ public class BattleClick : MonoBehaviour, IPointerClickHandler
                     maxDamage = chars[x].maxDamage;
                     maxHealth = chars[x].maxHealth;
 
+                    GameObject.Find("Player HP Bar").GetComponent<Slider>().maxValue += maxHealth;
+                    GameObject.Find("Player HP Bar").GetComponent<Slider>().value += maxHealth;
+
                     if (type.Contains("Antibiotic"))
                     {
                         gameObject.GetComponent<Image>().color = new Color32(0, 0, 255, 100);
@@ -67,44 +92,62 @@ public class BattleClick : MonoBehaviour, IPointerClickHandler
                     {
                         gameObject.GetComponent<Image>().color = new Color32(0, 255, 0, 100);
                     }
+                    else
+                    {
+                        gameObject.GetComponent<Image>().color = new Color32(105, 105, 105, 100);
+                    }
 
+                    bc.addMaxPlayerActionCount();
+                    active = true;
                     selectable = true;
+                    break;
+                }
+            }
+            for (int x = 1; x <= 5; x++)
+            {
+                BattleAbility tmp = GameObject.Find("Ability " + x).GetComponent<BattleAbility>();
+                if (!(index == 1000) && tmp.index == index)
+                {
+                    ability = tmp;
                     break;
                 }
             }
         }
         else if (gameObject.name.Contains("Enemy"))
         {
-            if (charPosition % 3 == 1)
+            string enemy = bc.getEnemy(charPosition);
+            string[] stats = enemy.Split();
+            name = stats[0];
+            if (name != "NA")
             {
-                type = "Virus";
-                gameObject.GetComponent<Image>().color = new Color32(255, 0, 0, 100);
-                bc.addColumn(0);
+                maxHealth = Int32.Parse(stats[1]);
+                maxDamage = Int32.Parse(stats[2]);
+                type = stats[3];
+                symptoms = stats[4];
+                setModifiers();
+                selectable = true;
+                if (charPosition % 3 == 1) { bc.addColumn(0); }
+                else if (charPosition % 3 == 2) { bc.addColumn(1); }
+                else if (charPosition % 3 == 0) { bc.addColumn(2); } 
             }
-            else if(charPosition % 3 == 2)
+            else
             {
-                type = "Bacteria Gram Negative";
-                gameObject.GetComponent<Image>().color = new Color32(255, 255, 0, 100);
-                bc.addColumn(1);
+                gameObject.GetComponent<Image>().color = new Color32(0, 0, 0, 100);
             }
-            else if (charPosition % 3 == 0)
-            {
-                type = "Bacteria Gram Positive";
-                gameObject.GetComponent<Image>().color = new Color32(255, 0, 255, 100);
-                bc.addColumn(2);
-            }
-            setModifiers();
-            maxHealth = 100;
-            selectable = true;
         }
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (selectable)
+        if (selectable && bc.getPlayerTurn())
         {
             bc.setState(gameObject);
         }
     }
+
+    public double weaknessMultiplier = 2;
+    public double resistanceMultiplier = 0.5;
+    public string weakness;
+    public string resistance;
 
     public void takeDamage(int dmg, string type)
     {
@@ -142,22 +185,72 @@ public class BattleClick : MonoBehaviour, IPointerClickHandler
 
     private void setModifiers()
     {
-        if(type.Contains("Gram Positive"))
+        if(type.Contains("Positive"))
         {
-            weakness = "Gram Positive";
-            resistance = "Gram Negative";
+            gameObject.GetComponent<Image>().color = new Color32(0, 255, 255, 100);
+            weakness = "Positive";
+            resistance = "Negative";
         }
-        else if (type.Contains("Gram Negative"))
+        else if (type.Contains("Negative"))
         {
-            weakness = "Gram Negative";
-            resistance = "Gram Positive";
+            gameObject.GetComponent<Image>().color = new Color32(255, 0, 255, 100);
+            weakness = "Negative";
+            resistance = "Positive";
         }
         else if (type.Contains("Virus"))
         {
+            gameObject.GetComponent<Image>().color = new Color32(255, 0, 0, 100);
             weakness = "N/A";
             resistance = "Antibiotic";
             resistanceMultiplier = 0;
         }
+    }
 
+    float speed = 5.0f;
+    float amount = 0.05f;
+    Vector3 originalPos;
+    Vector3 originalPosBG;
+    public int countdown;
+
+    void Update()
+    {
+        if (countdown > 0)
+        { 
+            Vector3 pos = gameObject.transform.position;
+            Quaternion q = gameObject.transform.rotation;
+            pos.x += Mathf.Sin(Time.time * speed) * amount;
+            pos.y += Mathf.Sin(Time.time * speed) * amount;
+            gameObject.transform.SetPositionAndRotation(pos, q);
+
+            pos = charBG.transform.position;
+            q = charBG.transform.rotation;
+            pos.x += Mathf.Sin(Time.time * speed) * amount;
+            pos.y += Mathf.Sin(Time.time * speed) * amount;
+            charBG.transform.SetPositionAndRotation(pos, q);
+
+            countdown--;
+        }
+        else
+        {
+            Quaternion q = gameObject.transform.rotation;
+            gameObject.transform.SetPositionAndRotation(originalPos, q);
+            q = charBG.transform.rotation;
+            charBG.transform.SetPositionAndRotation(originalPosBG, q);
+        }
+
+        if (!selectable)
+        {
+            charBG.GetComponent<Image>().color = new Color32(0, 0, 0, 100);
+        }
+    }
+
+    public void selected()
+    {
+        charBG.GetComponent<Image>().color = new Color32(0, 0, 255, 100);
+    }
+
+    public void unselected()
+    {
+        charBG.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
     }
 }
