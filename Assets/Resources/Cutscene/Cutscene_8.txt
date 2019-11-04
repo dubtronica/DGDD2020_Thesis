@@ -1,0 +1,4 @@
+DrArchie: You will be facing off against three waves of viruses.:false
+DBox:Viruses are immune to antibiotics and they can carry symptoms. These symptoms appear next to their health bars.
+DBox:These guys have the Fever symptom, which damages your entire party.
+DrEdward: We'll count on you, <Player Name>.:false

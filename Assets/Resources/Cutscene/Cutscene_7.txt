@@ -1,0 +1,9 @@
+DrMichael:Red spots over face?:true
+DrMichael: Itching?:true
+DrMichael: High fever?:true
+DrMichael: Body aches?:true
+DrMichael: These could only mean one thing.:false
+DrEdward: Chickenpox?:false
+DrArchie: Definitely chickenpox.:false
+DrArchie: <Player name>, ready to go?:false
+...
