@@ -183,11 +183,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &23250705
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: -60}
+  m_AnchoredPosition: {x: 100, y: -65}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &23250708
@@ -251,11 +256,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &83262994
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,9 +317,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeAbility: 
   type: 
-  maxDamage: 0
-  maxHealth: 0
-  charPosition: 0
+  index: 0
+  abilityNumber: 0
+  charge: 0
+  maxCharge: 3
 --- !u!222 &83262998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -352,7 +363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 100}
+  m_AnchoredPosition: {x: -200, y: 105}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &123153135
@@ -381,11 +392,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &217876983
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +436,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -60}
+  m_AnchoredPosition: {x: 200, y: -65}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &217876986
@@ -449,11 +465,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &233649714
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,11 +538,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &388782775
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 100}
+  m_AnchoredPosition: {x: 300, y: 105}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &388782778
@@ -585,11 +611,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &504990602
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,9 +672,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeAbility: 
   type: 
-  maxDamage: 0
-  maxHealth: 0
-  charPosition: 0
+  index: 0
+  abilityNumber: 0
+  charge: 0
+  maxCharge: 3
 --- !u!222 &504990606
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -722,7 +754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 100}
+  m_AnchoredPosition: {x: -300, y: 105}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &604957162
@@ -751,11 +783,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &667775086
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +902,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: -60}
+  m_AnchoredPosition: {x: -300, y: -65}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &683118085
@@ -894,11 +931,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &770859163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,11 +1106,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &1081210893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,9 +1167,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeAbility: 
   type: 
-  maxDamage: 0
-  maxHealth: 0
-  charPosition: 0
+  index: 0
+  abilityNumber: 0
+  charge: 0
+  maxCharge: 3
 --- !u!222 &1081210896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1240,7 +1288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 100, y: 105}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1125753456
@@ -1269,11 +1317,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &1136872137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,7 +1499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -60}
+  m_AnchoredPosition: {x: -100, y: -65}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1246833537
@@ -1475,11 +1528,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &1280388120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,7 +1572,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: -60}
+  m_AnchoredPosition: {x: 300, y: -65}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1280388123
@@ -1543,11 +1601,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &1384109660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,9 +1662,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeAbility: 
   type: 
-  maxDamage: 0
-  maxHealth: 0
-  charPosition: 0
+  index: 0
+  abilityNumber: 0
+  charge: 0
+  maxCharge: 3
 --- !u!222 &1384109664
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1776,7 +1840,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1105815369}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -1997,11 +2061,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &1575598420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,9 +2122,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeAbility: 
   type: 
-  maxDamage: 0
-  maxHealth: 0
-  charPosition: 0
+  index: 0
+  abilityNumber: 0
+  charge: 0
+  maxCharge: 3
 --- !u!222 &1575598424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2098,7 +2168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -60}
+  m_AnchoredPosition: {x: -200, y: -65}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1596226853
@@ -2127,11 +2197,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &1705974758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,7 +2241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 100}
+  m_AnchoredPosition: {x: 200, y: 105}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1705974761
@@ -2195,11 +2270,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &1707238468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2251,9 +2331,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeAbility: 
   type: 
-  maxDamage: 0
-  maxHealth: 0
-  charPosition: 0
+  index: 0
+  abilityNumber: 0
+  charge: 0
+  maxCharge: 3
 --- !u!222 &1707238472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2325,11 +2406,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &1918623237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,7 +2450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 100}
+  m_AnchoredPosition: {x: -100, y: 105}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1918623240
@@ -2393,11 +2479,16 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
 --- !u!1 &1934456039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,9 +2540,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeAbility: 
   type: 
-  maxDamage: 0
-  maxHealth: 0
-  charPosition: 0
+  index: 0
+  abilityNumber: 0
+  charge: 0
+  maxCharge: 3
 --- !u!222 &1934456042
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2523,8 +2615,13 @@ MonoBehaviour:
   type: 
   maxDamage: 0
   maxHealth: 0
+  index: 0
+  symptoms: 
+  charPosition: 0
+  active: 0
+  selectable: 0
   weaknessMultiplier: 2
   resistanceMultiplier: 0.5
   weakness: 
   resistance: 
-  charPosition: 0
+  countdown: 0
