@@ -10,14 +10,16 @@ public class BattleAbility : MonoBehaviour, IPointerClickHandler
     private BattleController bc;
     private DataController dataController;
     private GameObject charBG;
+    private GameObject text;
+    public BattleClick character;
 
     public string activeAbility;
     public string type;
     public int index;
 
-    public int abilityNumber;
     public int charge = 0;
     public int maxCharge = 3;
+    public bool active = false;
 
     public void addBG()
     {
@@ -36,6 +38,25 @@ public class BattleAbility : MonoBehaviour, IPointerClickHandler
         charBG.transform.SetSiblingIndex(1);
     }
 
+    public void addText()
+    {
+        Canvas cv = bc.GetComponent<Canvas>();
+        text = new GameObject("Text");
+        RectTransform tempRT = gameObject.GetComponent<RectTransform>();
+        text.AddComponent<RectTransform>();
+        text.GetComponent<RectTransform>().anchorMin = tempRT.anchorMin;
+        text.GetComponent<RectTransform>().anchorMax = tempRT.anchorMax;
+        text.GetComponent<RectTransform>().anchoredPosition = tempRT.anchoredPosition;
+        text.GetComponent<RectTransform>().sizeDelta = new Vector2(50, 50);
+        text.AddComponent<Text>();
+        text.transform.SetParent(cv.transform, false);
+        text.GetComponent<Text>().color = new Color32(0, 0, 0, 255);
+        text.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+        text.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+        text.GetComponent<Text>().fontSize = 8;
+        text.transform.SetSiblingIndex(100);
+    }
+
     public void Start()
     {
         bc = FindObjectOfType<BattleController>();
@@ -44,20 +65,28 @@ public class BattleAbility : MonoBehaviour, IPointerClickHandler
         gameObject.AddComponent<Image>();
 
         addBG();
+        addText();
 
-        string temp = gameObject.name;
-        for (int x = 0; x < temp.Length; x++)
+        List<CharacterData> chars = dataController.GetPlayerData().ownedCharacters.characters;
+        for (int x = 0; x < chars.Count; x++)
         {
-            if (Char.IsDigit(temp[x]))
+            if(index == chars[x].index && active)
             {
-                abilityNumber = temp[x] - '0';
+                type = chars[x].type;
+                activeAbility = chars[x].activeAbility;
                 break;
             }
         }
+
+        text.GetComponent<Text>().text = activeAbility;
     }
+
     public void OnPointerClick(PointerEventData eventData)
     {
-        bc.setState(gameObject);
+        if(charge >= 3 && character.canAttack())
+        {
+            bc.setState(gameObject);
+        }
     }
 
     public void Update()
@@ -65,6 +94,10 @@ public class BattleAbility : MonoBehaviour, IPointerClickHandler
         if (charge >= maxCharge)
         {
             gameObject.GetComponent<Image>().color = new Color32(0, 255, 255, 100);
+        }
+        else
+        {
+            gameObject.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
         }
     }
 

@@ -9,15 +9,13 @@ using System.IO;
 public class BattleController : MonoBehaviour
 {
     public static GameObject state = null;
+    public static GameObject secondSet = null;
     public static int[] characterIndexes = new int[9];
     public static int[] OTCIndexes = new int[2];
     public static List<string> enemies = new List<String>();
+    public static AbilityList abilityList = new AbilityList();
 
     public static int[] enemyColumn = {0,0,0};
-
-    public static bool playerTurn = true;
-    public static int maxPlayerActions = 0;
-    public static int playerActionCount = 0;
 
     public void setState(GameObject set)
     {
@@ -30,17 +28,16 @@ public class BattleController : MonoBehaviour
             state.GetComponent<BattleClick>().unselected();
         }
 
-        if (state == null)
+        if((set != null && set.GetComponent<BattleAbility>() != null) || (state != null && state.GetComponent<BattleAbility>() != null))
+        {
+            abilityHandler(set);
+        }
+        else if (state == null)
         {
             if (set.name.Contains("Character"))
             {
                 BattleClick temp = set.GetComponent<BattleClick>();
-                Debug.Log("Selected " + temp.name + ", HP: " + temp.maxHealth + ", DMG: " + temp.maxDamage + ", Type: " + temp.type);
-                state = set;
-            }
-            else if (set.name.Contains("Ability"))
-            {
-                Debug.Log("Selected " + set.name);
+                Debug.Log("Selected " + temp.name + ", HP: " + temp.currentHealth + ", DMG: " + temp.maxDamage + ", Type: " + temp.type);
                 state = set;
             }
         }
@@ -58,33 +55,6 @@ public class BattleController : MonoBehaviour
                     autoHandler(set);
                 }
             }
-            else if (set.GetComponent<BattleAbility>() != null)
-            {
-                BattleAbility temp = set.GetComponent<BattleAbility>();
-                Debug.Log("Selected " + temp.name);
-                state = set;
-            }
-        }
-        else if (state.GetComponent<BattleAbility>() != null)
-        {
-            if (set.GetComponent<BattleClick>() != null)
-            {
-
-            }
-            else if (set.GetComponent<BattleAbility>() != null)
-            {
-                if(state.name == set.name)
-                {
-                    state = null;
-                    Debug.Log("Deselected Ability");
-                }
-                else
-                {
-                    BattleAbility temp = set.GetComponent<BattleAbility>();
-                    Debug.Log("Selected " + temp.name);
-                    state = set;
-                }
-            }
         }
 
         if (state != null && state.GetComponent<BattleAbility>() != null)
@@ -95,6 +65,50 @@ public class BattleController : MonoBehaviour
         {
             state.GetComponent<BattleClick>().selected();
         }
+    }
+
+    public bool inRange(int range, int charPosition)
+    {
+        if(range == 3)
+        {
+            return true;
+        }
+        else if(range == 2)
+        {
+            if (charPosition % 3 == 1 || charPosition % 3 == 2)
+            {
+                return true;
+            }
+            else if(charPosition % 3 == 0)
+            {
+                if (enemyColumn[0] == 0 || enemyColumn[1] == 0)
+                {
+                    return true;
+                }
+            }
+        }
+        else if(range == 1)
+        {
+            if (charPosition % 3 == 1)
+            {
+                return true;
+            }
+            else if (charPosition % 3 == 2)
+            {
+                if (enemyColumn[0] == 0)
+                {
+                    return true;
+                }
+            }
+            else if (charPosition % 3 == 0)
+            {
+                if (enemyColumn[0] == 0 && enemyColumn[1] == 0)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private void autoHandler(GameObject set)
@@ -109,7 +123,7 @@ public class BattleController : MonoBehaviour
         {
             if (set.name.Contains("Character"))
             {
-                Debug.Log("Selected " + setbcComponent.name + ", HP: " + setbcComponent.maxHealth + ", DMG: " + setbcComponent.maxDamage + ", Type: " + setbcComponent.type);
+                Debug.Log("Selected " + setbcComponent.name + ", HP: " + setbcComponent.currentHealth + ", DMG: " + setbcComponent.maxDamage + ", Type: " + setbcComponent.type);
                 state = set;
             }
             else if (set.name.Contains("Enemy"))
@@ -117,68 +131,21 @@ public class BattleController : MonoBehaviour
                 bool attackable = false;
                 if (statebcComponent.type.Contains("Antibiotic"))
                 {
-                    if (setbcComponent.charPosition % 3 == 1 || setbcComponent.charPosition % 3 == 2)
-                    {
-                        attackable = true;
-                    }
-                    else if (setbcComponent.charPosition % 3 == 0)
-                    {
-                        if (enemyColumn[0] == 0 || enemyColumn[1] == 0)
-                        {
-                            attackable = true;
-                        }
-                    }
+                    attackable = inRange(2, setbcComponent.charPosition);
                 }
                 else if (statebcComponent.type.Contains("ImmuneCell"))
                 {
-                    if (setbcComponent.charPosition % 3 == 1)
-                    {
-                        attackable = true;
-                    }
-                    else if (setbcComponent.charPosition % 3 == 2)
-                    {
-                        if (enemyColumn[0] == 0)
-                        {
-                            attackable = true;
-                        }
-                    }
-                    else if (setbcComponent.charPosition % 3 == 0)
-                    {
-                        if (enemyColumn[0] == 0 && enemyColumn[1] == 0)
-                        {
-                            attackable = true;
-                        }
-                    }
+                    attackable = inRange(1, setbcComponent.charPosition);
                 }
-                if (attackable && playerActionCount != maxPlayerActions)
+                if (attackable)
                 {
-                    Debug.Log(statebcComponent.name + " Attacked " + set.name + " of type " + setbcComponent.type + " with " + setbcComponent.maxHealth + " hp");
-                    setbcComponent.takeDamage(statebcComponent.maxDamage, statebcComponent.type);
-                    Debug.Log("Enemy Health Left: " + setbcComponent.maxHealth);
-                    setbcComponent.countdown = 60;
+                    Debug.Log(statebcComponent.name + " Attacked " + set.name + " of type " + setbcComponent.type + " with " + setbcComponent.currentHealth + " hp");
+                    setbcComponent.autoTakeDamage(statebcComponent);
+                    Debug.Log("Enemy Health Left: " + setbcComponent.currentHealth);
                     statebcComponent.ability.charge++;
                     statebcComponent.selectable = false;
-                    playerActionCount++;
                     state = null;
-                    if (playerActionCount == maxPlayerActions)
-                    {
-                        runAI();
-                        playerActionCount = 0;
-                        for (int x = 1; x <= 9; x++)
-                        {
-                            BattleClick temp = GameObject.Find("Character " + x).GetComponent<BattleClick>();
-                            if (temp.active)
-                            {
-                                temp.selectable = true;
-                                temp.unselected();
-                            }
-
-                        }
-                    }
-                }
-                else
-                {
-                    Debug.Log("Unit Not In Range");
+                    tryAI();
                 }
             }
         }
@@ -186,35 +153,193 @@ public class BattleController : MonoBehaviour
 
     private void abilityHandler(GameObject set)
     {
+        List<BattleClick> targets = new List<BattleClick>();
+        bool abilityUsed = false;
+        if (set.name.Contains("Ability"))
+        {
+            if (state == null)
+            {
+                Debug.Log("Selected " + set.GetComponent<BattleAbility>().activeAbility);
+                state = set;
+            }
+            else if (state.name == set.name)
+            {
+                state = null;
+                Debug.Log("Deselected " + set.GetComponent<BattleAbility>().activeAbility);
+            }
+            else
+            {
+                Debug.Log("Selected " + set.GetComponent<BattleAbility>().activeAbility);
+                state = set;
+            }
+        }
+        string targetType = "";
+        string numberOfTargets = "";
+        int range = 0;
+        if(state != null)
+        {
+            for (int x = 0; x < abilityList.activeAbilityList.Count; x++)
+            {
+                if (state.GetComponent<BattleAbility>().activeAbility == abilityList.activeAbilityList[x].name)
+                {
+                    targetType = abilityList.activeAbilityList[x].targetType;
+                    numberOfTargets = abilityList.activeAbilityList[x].numberOfTargets;
+                    range = abilityList.activeAbilityList[x].range;
+                }
+            }
+        }
+        if (numberOfTargets == "All")
+        {
+            abilityUsed = true;
+            for (int x = 1; x <= 9; x++)
+            {
+                targets.Add(GameObject.Find(targetType + " " + x).GetComponent<BattleClick>());
+            }
+        }
+        else if (numberOfTargets == "Self")
+        {
+            abilityUsed = true;
+            targets.Add(state.GetComponent<BattleAbility>().character);
+        }
+        else
+        {
+            if (set.GetComponent<BattleClick>() != null)
+            {
+                if ((set.name.Contains(targetType) && inRange(range, set.GetComponent<BattleClick>().charPosition)))
+                {
+                    if (numberOfTargets == "Column")
+                    {
+                        abilityUsed = true;
+                        for (int x = 1; x <= 9; x++)
+                        {
+                            if (GameObject.Find(targetType + " " + x).GetComponent<BattleClick>().charPosition % 3 == set.GetComponent<BattleClick>().charPosition % 3)
+                            {
+                                targets.Add(GameObject.Find(targetType + " " + x).GetComponent<BattleClick>());
+                            }
+                        }
+                    }
+                    else if (numberOfTargets == "Single")
+                    {
+                        abilityUsed = true;
+                        targets.Add(set.GetComponent<BattleClick>());
+                    }
+                    else if(numberOfTargets == "Double")
+                    {
+                        if(secondSet == null)
+                        {
+                            secondSet = set;
+                        }
+                        else
+                        {
+                            targets.Add(set.GetComponent<BattleClick>());
+                            targets.Add(secondSet.GetComponent<BattleClick>());
+                            secondSet = null;
+                            abilityUsed = true;
+                        }
+                    }
+                }
+            }
+        }
+        if (abilityUsed)
+        {
+            abilityList.callAbility(state.GetComponent<BattleAbility>(), targets);
+            state.GetComponent<BattleAbility>().charge = 0;
+            state.GetComponent<BattleAbility>().character.selectable = false;
+            state = null;
+            tryAI();
+        }
+    }
 
+    public void tryAI()
+    {
+        bool playerDone = true;
+        for (int x = 1; x <= 9; x++)
+        {
+            BattleClick temp = GameObject.Find("Character " + x).GetComponent<BattleClick>();
+            if (temp.active)
+            {
+                if (temp.canAttack())
+                {
+                    playerDone = false;
+                }
+
+            }
+
+        }
+        if (playerDone)
+        {
+            runAI();
+        }
     }
 
     public void runAI()
     {
+        for (int x = 1; x <= 9; x++)
+        {
+            BattleClick temp = GameObject.Find("Character " + x).GetComponent<BattleClick>();
+            BattleClick temp2 = GameObject.Find("Enemy " + x).GetComponent<BattleClick>();
+            if (temp.active)
+            {
+                temp.selectable = true;
+                temp.applyDebuffs();
+                temp.unselected();
+                temp.updateDebuffs();
+            }
+            if (temp2.active)
+            {
+                temp2.applyDebuffs();
+                temp2.updateDebuffs();
+            }
+        }
+
         List<string> symptoms = new List<string>();
 
         for (int x = 1; x <= 9; x++)
         {
             BattleClick temp = GameObject.Find("Enemy " + x).GetComponent<BattleClick>();
-            if (temp.selectable)
+            if (temp.canAttack())
             {
                 GameObject.Find("Player HP Bar").GetComponent<Slider>().value -= temp.maxDamage;
                 if (temp.symptoms.Contains("Pain"))
                 {
                     symptoms.Add("Pain");
                 }
-                else if (temp.symptoms.Contains("Fever"))
+                if (temp.symptoms.Contains("Fever"))
                 {
                     symptoms.Add("Fever");
                 }
-                else if (temp.symptoms.Contains("Diarrhea"))
+                if (temp.symptoms.Contains("Diarrhea"))
                 {
                     symptoms.Add("Diarrhea");
                 }
-                else if (temp.symptoms.Contains("Cold"))
+                if (temp.symptoms.Contains("Cold"))
                 {
                     symptoms.Add("Cold");
                 }
+            }
+        }
+
+        for (int x = 0; x < symptoms.Count; x++)
+        {
+            int newRand;
+            do {newRand = UnityEngine.Random.Range(1, 10);}
+            while (!GameObject.Find("Character " + newRand).GetComponent<BattleClick>().active);
+
+            if (symptoms[x] == "Pain")
+            {
+                GameObject.Find("Character " + newRand).GetComponent<BattleClick>().addDebuff("Pain",1);
+            }
+            else if (symptoms[x] == "Fever")
+            {
+                GameObject.Find("Character " + newRand).GetComponent<BattleClick>().addDebuff("Fever", 3);
+            }
+            else if (symptoms[x] == "Diarrhea")
+            {
+                GameObject.Find("Character " + newRand).GetComponent<BattleClick>().addDebuff("Diarrhea", 2);
+            }
+            else if (symptoms[x] == "Cold")
+            {
+                GameObject.Find("Character " + newRand).GetComponent<BattleClick>().addDebuff("Cold", 1);
             }
         }
 
@@ -224,13 +349,9 @@ public class BattleController : MonoBehaviour
             if (temp.active)
             {
                 temp.countdown = 60;
+                temp.updateDisplayText();
             }
         }
-    }
-
-    public bool getPlayerTurn()
-    {
-        return playerTurn;
     }
 
     public int getIndex(string type, int position)
@@ -246,12 +367,10 @@ public class BattleController : MonoBehaviour
         return 1000;
     }
 
-    public int[] indexes(TextAsset text, int size)
+    public int[] indexes(string text, int size)
     {
-        string txt = text.text;
-
         int[] temp = new int[size];
-        using (StringReader sr = new StringReader(txt))
+        using (StringReader sr = new StringReader(text))
         {
             string line;
             for (int x = 0; x < size; x++)
@@ -287,35 +406,28 @@ public class BattleController : MonoBehaviour
     {
         enemyColumn[col] += 1;
     }
+
     public void removeColumn(int col)
     {
         enemyColumn[col] -= 1;
     }
 
-    public int getPlayerActionCount()
-    {
-        return playerActionCount;
-    }
-
-    public void addMaxPlayerActionCount()
-    {
-        maxPlayerActions++;
-    }
-
     void Awake()
     {
         setEnemies();
-        TextAsset text1 = Resources.Load("Character") as TextAsset;
-        characterIndexes = indexes(text1, 9);
+        string text = File.ReadAllText("Assets/Resources/SaveFile.txt");
+        characterIndexes = indexes(text, 9);
         for (int x = 0, y = 1; x < 9; x++)
         {
             if (characterIndexes[x] != 1000)
             {
                 BattleAbility temp = GameObject.Find("Ability " + y++).GetComponent<BattleAbility>();
                 temp.index = characterIndexes[x];
+                temp.active = true;
             }
         }
     }
+
     void Start()
     {
         GameObject.Find("Background").transform.SetSiblingIndex(0);
