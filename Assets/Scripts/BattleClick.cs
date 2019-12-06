@@ -62,13 +62,14 @@ public class BattleClick : MonoBehaviour, IPointerClickHandler
         text.GetComponent<RectTransform>().anchorMin = tempRT.anchorMin;
         text.GetComponent<RectTransform>().anchorMax = tempRT.anchorMax;
         text.GetComponent<RectTransform>().anchoredPosition = tempRT.anchoredPosition;
-        text.GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
+        text.GetComponent<RectTransform>().sizeDelta = new Vector2(80, 80);
         text.AddComponent<Text>();
         text.transform.SetParent(cv.transform, false);
         text.GetComponent<Text>().color = new Color32(0, 0, 0, 255);
         text.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
         text.GetComponent<Text>().font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
-        text.GetComponent<Text>().fontSize = 9;
+        text.GetComponent<Text>().fontSize = 10;
+        text.GetComponent<Text>().raycastTarget = false;
         text.transform.SetSiblingIndex(100);
     }
 
