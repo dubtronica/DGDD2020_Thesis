@@ -29,7 +29,7 @@ public class PreBattleSetup : MonoBehaviour
 	
 	public OTCList otcList;
 	
-	string[] charactersInfo;
+	string[] charactersInfo = new string[5];
 	string[] charAndLocation;
 	string[] otcInfo;
 	
@@ -48,45 +48,58 @@ public class PreBattleSetup : MonoBehaviour
 		boxpic.GetComponent<Image>().enabled = false;
 		box.enabled = false;
 		
-		string line;
+		string line = "";
 		StreamReader r;
 		
 		try{
-			string file = "Assets/SaveFile.txt";
+			string file = "Assets/Resources/SaveFile.txt";
 			r = new StreamReader(file);
-
+			int n = 0;
+			
 			using (r)
 			{
-				do
-				{
+				
+				while (line != null){
+					
 					line = r.ReadLine();
-					if (line != null)
+	
+					if (string.Equals(line,"NA") == false && line != null)
 					{
-						charactersInfo = line.Split(';');
+						//charactersInfo = line.Split(';');
+						charactersInfo[n] = line;
+						n++;
 						
 					}
 				}
-				while (line != null);
+				
 				r.Close();
 			}
 			
 			for(int i = 0; i < 5; i++){
 				
 				try{
-					Debug.Log(charactersInfo[i]);
-					if(charactersInfo[i] != null){
 					
-						charAndLocation = charactersInfo[i].Split(',');
+					if(string.Equals(charactersInfo[i],"NA") == false && charactersInfo[i] != null){
+					
+						//charAndLocation = charactersInfo[i].Split(',');
 						
-						for(int j = 0; j < numberOfCharacters; j++){
+						//for(int j = 0; j < numberOfCharacters; j++){
 						
-							if(charAndLocation[0] == listOfCharacters[j].name){
+							/*if(charAndLocation[0] == listOfCharacters[j].name){
 								charactersOnTeam[i] = listOfCharacters[j];
 								characterPics[i].sprite = charactersOnTeam[i].characterHeadshot;
 								characterNames[i].text = charactersOnTeam[i].name;
-							}
+							}*/
 							
-						}
+							int m = Int32.Parse(charactersInfo[i]);
+							
+							//if(m == j){
+								charactersOnTeam[i] = listOfCharacters[m];
+								characterPics[i].sprite = charactersOnTeam[i].characterHeadshot;
+								characterNames[i].text = charactersOnTeam[i].name;
+							//}
+							
+						//}
 					}
 				}catch(IndexOutOfRangeException exception){}
 

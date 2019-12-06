@@ -43,7 +43,7 @@ public class CharacterList : MonoBehaviour
         for (int i = 0; i < numberOfCharacters; i++)
         {
             // 60 width of item
-            float nextPosition = i * 65;
+            float nextPosition = i * 75;
 
 			Vector3 nextChar = new Vector3(nextPosition, 29.035f, SpawnPoint.position.z);
 

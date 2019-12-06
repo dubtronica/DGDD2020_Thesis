@@ -9,12 +9,16 @@ using UnityEngine.SceneManagement;
 
 public class HomeScreen : MonoBehaviour
 {
-	
+	public AudioSource music;
+	public GameObject gm;
 	public Button start, story, characters, summon, inventory, back;
 	public Text currLife, currency1, currency2;
 	
 	static int stageCount = 2;
 	public Button[] stages = new Button[stageCount];
+	
+	bool play = true;
+	bool loop = true;
 	
     // Start is called before the first frame update
     void Start()
@@ -45,12 +49,17 @@ public class HomeScreen : MonoBehaviour
 			
 		}catch(NullReferenceException exception){}
 		
+		music.Play();
+		
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //if(play == true && loop == true){
+			//music.Play();
+			
+		//}
     }
 	
 	public void Homescreen(){

@@ -34,6 +34,7 @@ public class CharacterDetails : MonoBehaviour
 	
 	public Image charOnTile;
 	
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +47,7 @@ public class CharacterDetails : MonoBehaviour
 			fullChar.enabled = false;
 			fullpic = fullChar.GetComponent<Transform>();
 		}
-		
+
     }
 
     // Update is called once per frame
