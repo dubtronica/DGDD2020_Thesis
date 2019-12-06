@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 13567691}
   - component: {fileID: 13567693}
-  - component: {fileID: 13567694}
+  - component: {fileID: 13567692}
   m_Layer: 5
   m_Name: Character 6
   m_TagString: Untagged
@@ -154,18 +154,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 20}
+  m_AnchoredPosition: {x: -75, y: 20}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &13567693
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13567690}
-  m_CullTransparentMesh: 0
---- !u!114 &13567694
+--- !u!114 &13567692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,16 +166,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 13567690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -193,6 +186,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &13567693
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13567690}
+  m_CullTransparentMesh: 0
 --- !u!1 &23250705
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 23250706}
   - component: {fileID: 23250708}
-  - component: {fileID: 23250709}
+  - component: {fileID: 23250707}
   m_Layer: 5
   m_Name: Enemy 7
   m_TagString: Untagged
@@ -227,18 +228,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: -65}
+  m_AnchoredPosition: {x: 50, y: -65}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &23250708
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23250705}
-  m_CullTransparentMesh: 0
---- !u!114 &23250709
+--- !u!114 &23250707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,16 +240,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 23250705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -266,6 +260,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &23250708
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23250705}
+  m_CullTransparentMesh: 0
 --- !u!1 &83262994
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,15 +314,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 83262994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48051cda410878478771a025bfd69f4, type: 3}
+  m_Script: {fileID: 11500000, guid: a9b5195c49be7dc45bc0df921637f7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
   activeAbility: 
   type: 
   index: 0
-  abilityNumber: 0
   charge: 0
   maxCharge: 3
+  active: 0
 --- !u!222 &83262998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -339,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123153133}
   - component: {fileID: 123153135}
-  - component: {fileID: 123153136}
+  - component: {fileID: 123153134}
   m_Layer: 5
   m_Name: Character 2
   m_TagString: Untagged
@@ -363,18 +366,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 105}
+  m_AnchoredPosition: {x: -150, y: 105}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &123153135
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123153132}
-  m_CullTransparentMesh: 0
---- !u!114 &123153136
+--- !u!114 &123153134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -383,16 +378,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 123153132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -402,6 +398,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &123153135
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123153132}
+  m_CullTransparentMesh: 0
 --- !u!1 &217876983
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 217876984}
   - component: {fileID: 217876986}
-  - component: {fileID: 217876987}
+  - component: {fileID: 217876985}
   m_Layer: 5
   m_Name: Enemy 8
   m_TagString: Untagged
@@ -436,18 +440,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -65}
+  m_AnchoredPosition: {x: 150, y: -65}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &217876986
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217876983}
-  m_CullTransparentMesh: 0
---- !u!114 &217876987
+--- !u!114 &217876985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -456,16 +452,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 217876983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -475,6 +472,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &217876986
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217876983}
+  m_CullTransparentMesh: 0
 --- !u!1 &233649714
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 233649715}
   - component: {fileID: 233649717}
-  - component: {fileID: 233649718}
+  - component: {fileID: 233649716}
   m_Layer: 5
   m_Name: Character 5
   m_TagString: Untagged
@@ -509,18 +514,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 20}
+  m_AnchoredPosition: {x: -175, y: 20}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &233649717
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233649714}
-  m_CullTransparentMesh: 0
---- !u!114 &233649718
+--- !u!114 &233649716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -529,16 +526,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 233649714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -548,6 +546,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &233649717
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233649714}
+  m_CullTransparentMesh: 0
 --- !u!1 &388782775
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 388782776}
   - component: {fileID: 388782778}
-  - component: {fileID: 388782779}
+  - component: {fileID: 388782777}
   m_Layer: 5
   m_Name: Enemy 3
   m_TagString: Untagged
@@ -585,15 +591,7 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 105}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &388782778
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 388782775}
-  m_CullTransparentMesh: 0
---- !u!114 &388782779
+--- !u!114 &388782777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -602,16 +600,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 388782775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -621,6 +620,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &388782778
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388782775}
+  m_CullTransparentMesh: 0
 --- !u!1 &504990602
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,15 +674,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 504990602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48051cda410878478771a025bfd69f4, type: 3}
+  m_Script: {fileID: 11500000, guid: a9b5195c49be7dc45bc0df921637f7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
   activeAbility: 
   type: 
   index: 0
-  abilityNumber: 0
   charge: 0
   maxCharge: 3
+  active: 0
 --- !u!222 &504990606
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -730,7 +738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 604957160}
   - component: {fileID: 604957162}
-  - component: {fileID: 604957164}
+  - component: {fileID: 604957163}
   m_Layer: 5
   m_Name: Character 1
   m_TagString: Untagged
@@ -754,7 +762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 105}
+  m_AnchoredPosition: {x: -250, y: 105}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &604957162
@@ -765,7 +773,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604957159}
   m_CullTransparentMesh: 0
---- !u!114 &604957164
+--- !u!114 &604957163
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -774,16 +782,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 604957159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -878,7 +887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 683118083}
   - component: {fileID: 683118085}
-  - component: {fileID: 683118086}
+  - component: {fileID: 683118084}
   m_Layer: 5
   m_Name: Character 7
   m_TagString: Untagged
@@ -905,15 +914,7 @@ RectTransform:
   m_AnchoredPosition: {x: -300, y: -65}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &683118085
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683118082}
-  m_CullTransparentMesh: 0
---- !u!114 &683118086
+--- !u!114 &683118084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -922,16 +923,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 683118082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -941,6 +943,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &683118085
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683118082}
+  m_CullTransparentMesh: 0
 --- !u!1 &770859163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1063,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1064156520}
   - component: {fileID: 1064156522}
-  - component: {fileID: 1064156523}
+  - component: {fileID: 1064156521}
   m_Layer: 5
   m_Name: Enemy 6
   m_TagString: Untagged
@@ -1077,18 +1087,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 20}
+  m_AnchoredPosition: {x: 275, y: 20}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1064156522
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064156519}
-  m_CullTransparentMesh: 0
---- !u!114 &1064156523
+--- !u!114 &1064156521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1097,16 +1099,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1064156519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -1116,6 +1119,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &1064156522
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064156519}
+  m_CullTransparentMesh: 0
 --- !u!1 &1081210893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,12 +1176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48051cda410878478771a025bfd69f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeAbility: 
-  type: 
-  index: 0
-  abilityNumber: 0
-  charge: 0
-  maxCharge: 3
 --- !u!222 &1081210896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1264,7 +1269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1125753454}
   - component: {fileID: 1125753456}
-  - component: {fileID: 1125753457}
+  - component: {fileID: 1125753455}
   m_Layer: 5
   m_Name: Enemy 1
   m_TagString: Untagged
@@ -1291,15 +1296,7 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: 105}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1125753456
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125753453}
-  m_CullTransparentMesh: 0
---- !u!114 &1125753457
+--- !u!114 &1125753455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1308,16 +1305,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1125753453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -1327,6 +1325,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &1125753456
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125753453}
+  m_CullTransparentMesh: 0
 --- !u!1 &1136872137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,7 +1345,7 @@ GameObject:
   - component: {fileID: 1136872140}
   - component: {fileID: 1136872139}
   - component: {fileID: 1136872138}
-  - component: {fileID: 1136872145}
+  - component: {fileID: 1136872142}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1453,7 +1459,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1136872145
+--- !u!114 &1136872142
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1462,7 +1468,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1136872137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5200d20e1548094faf7536c700ad673, type: 3}
+  m_Script: {fileID: 11500000, guid: 57daa472fe4901140bca55817c98c165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1246833534
@@ -1475,7 +1481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1246833535}
   - component: {fileID: 1246833537}
-  - component: {fileID: 1246833538}
+  - component: {fileID: 1246833536}
   m_Layer: 5
   m_Name: Character 9
   m_TagString: Untagged
@@ -1502,15 +1508,7 @@ RectTransform:
   m_AnchoredPosition: {x: -100, y: -65}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1246833537
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246833534}
-  m_CullTransparentMesh: 0
---- !u!114 &1246833538
+--- !u!114 &1246833536
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1519,16 +1517,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1246833534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -1538,6 +1537,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &1246833537
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246833534}
+  m_CullTransparentMesh: 0
 --- !u!1 &1280388120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1280388121}
   - component: {fileID: 1280388123}
-  - component: {fileID: 1280388124}
+  - component: {fileID: 1280388122}
   m_Layer: 5
   m_Name: Enemy 9
   m_TagString: Untagged
@@ -1572,18 +1579,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: -65}
+  m_AnchoredPosition: {x: 250, y: -65}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1280388123
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280388120}
-  m_CullTransparentMesh: 0
---- !u!114 &1280388124
+--- !u!114 &1280388122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1592,16 +1591,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1280388120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -1611,6 +1611,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &1280388123
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280388120}
+  m_CullTransparentMesh: 0
 --- !u!1 &1384109660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,15 +1665,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1384109660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48051cda410878478771a025bfd69f4, type: 3}
+  m_Script: {fileID: 11500000, guid: a9b5195c49be7dc45bc0df921637f7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
   activeAbility: 
   type: 
   index: 0
-  abilityNumber: 0
   charge: 0
   maxCharge: 3
+  active: 0
 --- !u!222 &1384109664
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2008,7 +2017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1548818811}
   - component: {fileID: 1548818813}
-  - component: {fileID: 1548818814}
+  - component: {fileID: 1548818812}
   m_Layer: 5
   m_Name: Enemy 5
   m_TagString: Untagged
@@ -2032,18 +2041,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 20}
+  m_AnchoredPosition: {x: 175, y: 20}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1548818813
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548818810}
-  m_CullTransparentMesh: 0
---- !u!114 &1548818814
+--- !u!114 &1548818812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2052,16 +2053,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1548818810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -2071,6 +2073,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &1548818813
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548818810}
+  m_CullTransparentMesh: 0
 --- !u!1 &1575598420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,15 +2127,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1575598420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48051cda410878478771a025bfd69f4, type: 3}
+  m_Script: {fileID: 11500000, guid: a9b5195c49be7dc45bc0df921637f7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
   activeAbility: 
   type: 
   index: 0
-  abilityNumber: 0
   charge: 0
   maxCharge: 3
+  active: 0
 --- !u!222 &1575598424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2144,7 +2155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1596226851}
   - component: {fileID: 1596226853}
-  - component: {fileID: 1596226854}
+  - component: {fileID: 1596226852}
   m_Layer: 5
   m_Name: Character 8
   m_TagString: Untagged
@@ -2171,15 +2182,7 @@ RectTransform:
   m_AnchoredPosition: {x: -200, y: -65}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1596226853
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596226850}
-  m_CullTransparentMesh: 0
---- !u!114 &1596226854
+--- !u!114 &1596226852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2188,16 +2191,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1596226850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -2207,6 +2211,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &1596226853
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596226850}
+  m_CullTransparentMesh: 0
 --- !u!1 &1705974758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,7 +2229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1705974759}
   - component: {fileID: 1705974761}
-  - component: {fileID: 1705974762}
+  - component: {fileID: 1705974760}
   m_Layer: 5
   m_Name: Enemy 2
   m_TagString: Untagged
@@ -2244,15 +2256,7 @@ RectTransform:
   m_AnchoredPosition: {x: 200, y: 105}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1705974761
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1705974758}
-  m_CullTransparentMesh: 0
---- !u!114 &1705974762
+--- !u!114 &1705974760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2261,16 +2265,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1705974758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -2280,6 +2285,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &1705974761
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705974758}
+  m_CullTransparentMesh: 0
 --- !u!1 &1707238468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2326,15 +2339,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1707238468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48051cda410878478771a025bfd69f4, type: 3}
+  m_Script: {fileID: 11500000, guid: a9b5195c49be7dc45bc0df921637f7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
   activeAbility: 
   type: 
   index: 0
-  abilityNumber: 0
   charge: 0
   maxCharge: 3
+  active: 0
 --- !u!222 &1707238472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2353,7 +2367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1761548174}
   - component: {fileID: 1761548176}
-  - component: {fileID: 1761548177}
+  - component: {fileID: 1761548175}
   m_Layer: 5
   m_Name: Enemy 4
   m_TagString: Untagged
@@ -2377,18 +2391,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 20}
+  m_AnchoredPosition: {x: 75, y: 20}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1761548176
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761548173}
-  m_CullTransparentMesh: 0
---- !u!114 &1761548177
+--- !u!114 &1761548175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2397,16 +2403,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1761548173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -2416,6 +2423,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &1761548176
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761548173}
+  m_CullTransparentMesh: 0
 --- !u!1 &1918623237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,7 +2441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1918623238}
   - component: {fileID: 1918623240}
-  - component: {fileID: 1918623241}
+  - component: {fileID: 1918623239}
   m_Layer: 5
   m_Name: Character 3
   m_TagString: Untagged
@@ -2450,18 +2465,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 105}
+  m_AnchoredPosition: {x: -50, y: 105}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1918623240
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918623237}
-  m_CullTransparentMesh: 0
---- !u!114 &1918623241
+--- !u!114 &1918623239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2470,16 +2477,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1918623237}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -2489,6 +2497,14 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &1918623240
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918623237}
+  m_CullTransparentMesh: 0
 --- !u!1 &1934456039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,12 +2554,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48051cda410878478771a025bfd69f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeAbility: 
-  type: 
-  index: 0
-  abilityNumber: 0
-  charge: 0
-  maxCharge: 3
 --- !u!222 &1934456042
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2562,7 +2572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2085865339}
   - component: {fileID: 2085865341}
-  - component: {fileID: 2085865342}
+  - component: {fileID: 2085865340}
   m_Layer: 5
   m_Name: Character 4
   m_TagString: Untagged
@@ -2586,18 +2596,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 20}
+  m_AnchoredPosition: {x: -275, y: 20}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2085865341
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085865338}
-  m_CullTransparentMesh: 0
---- !u!114 &2085865342
+--- !u!114 &2085865340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2606,16 +2608,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2085865338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be761b339a0c1234698c3d75e1845dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 479677fc60de9df4f9b556cba5e9730a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 0}
   name: 
-  passiveAbility: 
-  activeAbility: 
   type: 
   maxDamage: 0
+  currentHealth: 0
   maxHealth: 0
   index: 0
+  rarity: 0
   symptoms: 
   charPosition: 0
   active: 0
@@ -2625,3 +2628,11 @@ MonoBehaviour:
   weakness: 
   resistance: 
   countdown: 0
+--- !u!222 &2085865341
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085865338}
+  m_CullTransparentMesh: 0
