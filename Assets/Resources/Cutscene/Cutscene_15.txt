@@ -1,0 +1,10 @@
+DrYvette: Let’s see if your program can handle an STD.:false
+DrEdward: Why, ma’am?:false
+DrYvette: This week, we have got people asking us how to treat HPV.:false
+DrArchie: It is a disease caused by the virus that carries its name.:false
+DrEdward: Primarily, it is a sexually transmitted disease,:false
+DrEdward: but blood transfusions and contaminated needles help too.:true
+DrYvette: It doesn’t have any apparent symptoms aside from warts, but <Player Name>, clear it up for us in this simulation.:false
+DrEdward: Help the people get what they need!:false
+DrArchie: Good luck, <player name>!:false
+DYvette:  By the way, doctors, always check those syringes to see if they are sanitized and clean before using them.:false

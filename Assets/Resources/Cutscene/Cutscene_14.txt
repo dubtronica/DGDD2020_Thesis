@@ -1,0 +1,5 @@
+DrArchie:You took on Streptococcus pneumoniae in the past, which is commendable.:false
+DrMichael: But this time, it’s back stronger than ever.:false 
+DrEdward: The simulated patient is experiencing a bad sore throat, swollen tonsils, fever, chills.:false
+DrMichael: These are some symptoms of pneumonia for adults.:false
+DrArchie: You’ve done it once before, you can do it again. Go, player name.:false

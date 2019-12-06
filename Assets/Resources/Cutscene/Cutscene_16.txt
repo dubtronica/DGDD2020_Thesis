@@ -1,0 +1,9 @@
+DrEdward:Have you heard?:false
+DrEdward: The new cafeteria down the street is being questioned for serving expired food.:true
+DrYvette: Yes. Doctors Archie and Michael called in sick today, so it’s just the two of us.:false
+DrEdward: Normally, it starts with teenagers.:false
+DrYvette: Does your simulation handle that?:false
+DrEdward: Status of teenager.:false
+DrEdward: Symptoms of gastroenteritis, primarily stomach pains and Diarrhea.:true
+DrYvette: Good job, doctor.:false
+DrYvette: Now, <Player Name>, it’s up to you to find out the treatment for this and save our fellow humans from calling in sick.:false
